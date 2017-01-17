@@ -24,7 +24,7 @@ $at.CesiumController.flyTo = function(center,onComplete){
 }
 $at.CesiumController.returnGuo = function(center,onComplete){
 	$at.CesiumController.viewer.camera.flyTo({
-		destination:new Cesium.Cartesian3(11774625.73689001,-1114014.9206093757,4616702.508886645),
+		destination:new Cesium.Cartesian3(11774625.73689001,-1114014.9206093757,4016702.508886645),
 		orientation : {
 	        direction : new Cesium.Cartesian3(0,0.7071067811865476,-0.7071067811865476),
 	        up : new Cesium.Cartesian3(0,0.7071067811865476,0.7071067811865476)

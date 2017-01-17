@@ -9,13 +9,9 @@ $at.AreaController.allArear=[];
 
 $at.AreaController.init = function(viewer){
 	$at.AreaController.LoadJson("data/proArea.json",proArea);
-	$at.AreaController.LoadJson("data/cityArea.json",cityArea);
 	handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
-	viewer.screenSpaceEventHandler.setInputAction(function (movement) {
-    	
-    }, Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 	handler.setInputAction(function (movement) {
-    	ClickEvent(movement,viewer)
+    	ClickEvent(movement,viewer,$at.AnimateController.level1.hide);
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 	var staticColors = [
 		"#c93e3e",
@@ -38,13 +34,6 @@ $at.AreaController.init = function(viewer){
 			var areaController = new AreaDraw("p"+$at.AreaController.provinceCitycode[m],parseArea[m],scene,color);
 		}
 	}
-	function cityArea(data){
-//		var parseArea = new ParseArea(data,"c");
-//		for (var m=0;m<parseArea.length;m++) {
-//			var color = staticColors[parseInt(Math.random()*10)];
-//			var areaController = new AreaDraw("c"+$at.AreaController.cityCitycode[m],parseArea[m],scene,color);
-//		}
-	}
 }
 $at.AreaController.clear = function(type){
 	
@@ -52,36 +41,37 @@ $at.AreaController.clear = function(type){
 $at.AreaController.show = function(type){
 	
 }
-function ClickEvent(movement,viewer){
+function ClickEvent(movement,viewer,onComplete){
 	var pickedObject = viewer.scene.drillPick(movement.position);
 	if (pickedObject.length > 0) {
 		for (var i = 0; i < pickedObject.length; i++) {
 			var pickID = pickedObject[i].id;
-			advanceCity(pickID,viewer);
+			advanceCity(pickID,viewer,onComplete);
 		}
 	}
 }
-function advanceCity(pickID,viewer){
+function advanceCity(pickID,viewer,onComplete){
 	var type = pickID.substr(0,1);
 	var cityCode = pickID.substr(1,6);
 	if(type == "p"){
 		var index = $at.AreaController.provinceCitycode.indexOf(cityCode);
 		var center = $at.AreaController.provinceCenter[index];
 		var name = $at.AreaController.provinceCityname[index];
-		var id = "c"+cityCode
-		viewer.camera.flyTo({
-			destination : Cesium.Cartesian3.fromDegrees(center[0], center[1]-6, 800000.0),
-			orientation : {
-		        direction : new Cesium.Cartesian3(0,0.7071067811865476,-0.7071067811865476),
-		        up : new Cesium.Cartesian3(0,0.7071067811865476,0.7071067811865476)
-		    }
-		});
-	}else if(type == "c"){
-		var index = $at.AreaController.cityCitycode.indexOf(cityCode);
-		var center = $at.AreaController.cityCityCenter[index];
-		var name = $at.AreaController.cityCityname[index];
 		var id = "c"+cityCode;
+		
+		viewer.camera.flyTo({
+			destination : Cesium.Cartesian3.fromDegrees(center[0]+1, center[1], 800000.0),
+
+		   complete:onComplete
+		});
+		
 	}
+//	else if(type == "c"){
+//		var index = $at.AreaController.cityCitycode.indexOf(cityCode);
+//		var center = $at.AreaController.cityCityCenter[index];
+//		var name = $at.AreaController.cityCityname[index];
+//		var id = "c"+cityCode;
+//	}
 }
 $at.AreaController.LoadJson = function(url,onComplete){
 	$.getJSON(url,function(data){

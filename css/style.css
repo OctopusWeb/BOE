@@ -1,2 +1,35 @@
-*{margin: 0;padding: 0;}
-#cesiumContainer{width: 100%;height: 100%;position: absolute;}
+*{margin: 0;padding: 0;font-family: "微软雅黑";}
+body,html{width: 100%;height: 100%;background: #212227;}
+#wrap{width: 100%;height: 100%;overflow: hidden;position: absolute;}
+#wrap .top{width: 100%;position: absolute;background: #23262d;height: 50px;box-shadow: 2px 2px 3px #111518;z-index: 100;}
+#wrap .top h1{line-height: 50px;font-size: 16px;color: #ccc;font-weight: 600;margin-left: 50px;}
+#wrap .left{height: 100%;position: absolute;background: #23262d;width: 50px;z-index: 101;top: 50px;box-shadow: 1px 2px 3px #111518;}
+#wrap #cesiumContainer{width: 70%;position: absolute;top: 150px;padding: 20px;background: #212227;left: 60px;bottom: 20px;padding-bottom: 0;}
+#wrap .indexInfo{position: absolute;width: 70%;position: absolute;top: 50px;height: 100px;padding-left: 80px;}
+#wrap .indexInfo .infoBtn{width: 23.5%;height: 80px;float: left;background: #272a31;margin: 20px 0% 0px 2%;
+border-radius:3px;position: relative;}
+#wrap .indexInfo .infoBtn .infoBtnBottom{width: 100%;height: 3px;position: absolute;bottom: 0;
+ background: -webkit-linear-gradient(left, #7f42e8,#fd397b); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #7f42e8,#fd397b); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #7f42e8,#fd397b); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #7f42e8,#fd397b); /* 标准的语法 */}
+#wrap .indexInfo .infoBtnFirst{margin-left: 0;}
+#wrap .indexInfo .infoBtn p{color: #ccc;font-size: 20px;line-height: 45px;height: 45px;position: absolute;
+background: #383e4e;display: block;width: 45px;text-align: center;border-radius: 50%;border:4px #2e3138 solid;margin: 12px;}
+#wrap .indexInfo .infoBtn h3{color: #ccc;font-size: 14px;float: right;line-height: 30px;font-weight: 400;margin-right: 20px;
+margin-top: 10px;width: 50%;text-align: right;height: 30px;overflow: hidden;}
+#wrap .indexInfo .infoBtn span{display: block;float: right;line-height: 30px;color: #fff;font-size: 20px;
+margin-right: 20px;width: 50%;text-align: right;overflow: hidden;height: 30px;}
+
+#wrap .rightTable{position: absolute;left: 70%;top: 70px;bottom: 20px;background: #272a31;right: 20px;margin-left: 100px;
+padding: 20px;overflow: hidden;}
+#wrap .rightTable h1{width: 100%;font-size: 14px;color: #fff;text-align: left;font-weight: 400;line-height:30px;m}
+#wrap .rightTable .tableContent{width: 100%;border-bottom: 1px #ccc solid;float: left;}
+#wrap .rightTable .tableContent h2{color: #ccc;width: 50%;float: left;line-height: 50px;height: 50px;font-size: 14px;
+font-weight: 400;}
+#wrap .rightTable .tableContent h2 strong{width: 50px;text-align: left;float: left;}
+#wrap .rightTable .tableContent h4{color: #ccc;width: 20%;float: left;line-height: 50px;height: 50px;font-size: 14px;
+font-weight: 400;}
+#wrap .rightTable .tableContent .types{width: 20%;float: left;height: 50px;}
+#wrap .rightTable .tableContent .types h3{width: 20px;height: 20px;background: #d939a3;float: left;display: block;margin: 15px;}
+#wrap .cesium-viewer-bottom ,#wrap .cesium-timeline-main,#wrap .cesium-viewer-animationContainer{display: none;}
