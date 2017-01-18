@@ -6,13 +6,26 @@ $at.AreaController.cityCityCenter=[];
 $at.AreaController.cityCitycode=[];
 $at.AreaController.cityCityname=[];
 $at.AreaController.allArear=[];
+$at.AreaController.allIcon=[];
+
 
 $at.AreaController.init = function(viewer){
 	$at.AreaController.LoadJson("data/proArea.json",proArea);
+	$at.AreaController.LoadJson("data/offlinelist.json",iconInit);
+	$at.AreaController.area = viewer.entities.add(new Cesium.Entity());
 	handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	handler.setInputAction(function (movement) {
-    	ClickEvent(movement,viewer,$at.AnimateController.level1.hide);
+    	ClickEvent(movement,viewer,
+    		function(){
+	    		$at.AreaController.clear();
+	    		$at.AnimateController.level1.hide()
+	    	},
+	    	function(){
+	    		$at.AnimateController.level3.show();
+	    	}
+    	);
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    $at.AreaController.show();
 	var staticColors = [
 		"#c93e3e",
 		"#c55a4c",
@@ -34,23 +47,40 @@ $at.AreaController.init = function(viewer){
 			var areaController = new AreaDraw("p"+$at.AreaController.provinceCitycode[m],parseArea[m],scene,color);
 		}
 	}
+	function iconInit(data){
+		var parseIcon = new ParseIcon(data,"i");
+		for (var m=0;m<parseIcon.length;m++) {
+			IconDraw("i"+parseIcon[m][2],parseIcon[m])
+		}
+	}
 }
-$at.AreaController.clear = function(type){
-	
+$at.AreaController.clear = function(){
+	for (var i=0;i<$at.AreaController.allArear.length;i++) {
+		$at.AreaController.allArear[i].show = false;
+	}
+	for (var i=0;i<$at.AreaController.allIcon.length;i++) {
+		$at.AreaController.allIcon[i].show = true;
+	}
 }
-$at.AreaController.show = function(type){
-	
+$at.AreaController.show = function(){
+	for (var i=0;i<$at.AreaController.allArear.length;i++) {
+		$at.AreaController.allArear[i].show = true;
+	}
+	for (var i=0;i<$at.AreaController.allIcon.length;i++) {
+		$at.AreaController.allIcon[i].show = false;
+	}
 }
-function ClickEvent(movement,viewer,onComplete){
+function ClickEvent(movement,viewer,onComplete,onComplete2){
 	var pickedObject = viewer.scene.drillPick(movement.position);
 	if (pickedObject.length > 0) {
 		for (var i = 0; i < pickedObject.length; i++) {
 			var pickID = pickedObject[i].id;
-			advanceCity(pickID,viewer,onComplete);
+			advanceCity(pickID,viewer,onComplete,onComplete2);
 		}
 	}
 }
-function advanceCity(pickID,viewer,onComplete){
+function advanceCity(pickID,viewer,onComplete,onComplete2){
+	if(typeof(pickID) == "object") {pickID = pickID.id}
 	var type = pickID.substr(0,1);
 	var cityCode = pickID.substr(1,6);
 	if(type == "p"){
@@ -66,17 +96,18 @@ function advanceCity(pickID,viewer,onComplete){
 		});
 		
 	}
-//	else if(type == "c"){
-//		var index = $at.AreaController.cityCitycode.indexOf(cityCode);
-//		var center = $at.AreaController.cityCityCenter[index];
-//		var name = $at.AreaController.cityCityname[index];
-//		var id = "c"+cityCode;
-//	}
+	else if(type == "i"){
+		onComplete2()
+	}
 }
 $at.AreaController.LoadJson = function(url,onComplete){
 	$.getJSON(url,function(data){
 		onComplete(data)
 	})
+}
+function ParseIcon(datas,dataType){
+	var data = datas.info;
+	return data
 }
 function ParseArea(datas,dataType){
 	var areaArray = [];
@@ -112,6 +143,24 @@ function ParseArea(datas,dataType){
 	}
 	return areaArray;
 }
+function IconDraw(IconType,parse){
+	var index = parse[1].indexOf(",");
+	var x = parse[1].substr(0,index);
+	var y = parse[1].substr(index+1,index.length);
+	viewer = $at.CesiumController.viewer;
+	var billboards =  viewer.entities.add({
+	    position : Cesium.Cartesian3.fromDegrees(parseFloat(x),parseFloat(y)),
+	    id : IconType,
+	    billboard : {
+	        image : "img/webwxgetmsgimg.png",
+	        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
+	        scale : 0.5,
+        	scaleByDistance : new Cesium.NearFarScalar(1.5e2, 0.3, 0.2, 0.1)
+	    }
+	});
+	billboards.show = false;
+	$at.AreaController.allIcon.push(billboards);
+}
 function AreaDraw(areaType,parse,scene,colors){
 	var color = Cesium.Color.fromCssColorString(colors).withAlpha(0.5);
 	var geometryInstances = [];
@@ -134,6 +183,7 @@ function AreaDraw(areaType,parse,scene,colors){
                 color: Cesium.ColorGeometryInstanceAttribute.fromColor(color)
             },
             id:areaType
+            
         });
         geometryInstances.push(geometryInstance);
 	}
@@ -142,6 +192,7 @@ function AreaDraw(areaType,parse,scene,colors){
         geometryInstances: geometryInstances,
         appearance: new Cesium.PerInstanceColorAppearance({}),
     }));
+    $at.AreaController.allArear.push(polygon);
 }
 Array.prototype.indexOf = function(el){
 	for (var i=0,n=this.length; i<n; i++){
