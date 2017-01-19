@@ -2,12 +2,21 @@
 body,html{width: 100%;height: 100%;background: #212227;}
 #wrap{width: 100%;height: 100%;overflow: hidden;position: absolute;}
 #wrap .top{width: 100%;position: absolute;background: #23262d;height: 50px;box-shadow: 2px 2px 3px #111518;z-index: 100;}
-#wrap .top h1{line-height: 50px;font-size: 16px;color: #ccc;font-weight: 600;margin-left: 50px;}
-#wrap .left{height: 100%;position: absolute;background: #23262d;width: 50px;z-index: 101;top: 50px;box-shadow: 1px 2px 3px #111518;}
+#wrap .top h1{line-height: 50px;font-size: 16px;color: #ccc;font-weight: 600;margin-left: 50px;width: 200px;
+position: absolute;}
+#wrap .top input{position: absolute;right: 120px;height: 25px;top: 10px;border: #444444 solid 1px;
+background: #272a31;color: #ccc;width: 150px;}
+#wrap .top h2{position: absolute;color: #ccc;font-size: 14px;font-weight: 400;right: 280px;line-height: 50px;}
+#wrap .left{height: 100%;position: absolute;background: #23262d;width: 50px;z-index: 101;top: 50px;
+box-shadow: 1px 2px 3px #111518;}
+#wrap .left .menu{width: 100%;height: 50px;background: #272a31;border-bottom: 1px #444444 solid;cursor: pointer;}
+#wrap .left .menu:hover{background: #373c46;}
+#wrap .left .menu p{font-size: 18px;color: #fff;width: 50px;text-align: center;line-height: 50px;}
 #wrap #cesiumContainer{width: 70%;position: absolute;top: 150px;padding: 20px;background: #212227;left: 60px;bottom: 20px;padding-bottom: 0;}
 #wrap .indexInfo{position: absolute;width: 70%;position: absolute;top: 50px;height: 100px;padding-left: 80px;}
 #wrap .indexInfo .infoBtn{width: 23.5%;height: 80px;float: left;background: #272a31;margin: 20px 0% 0px 2%;
-border-radius:3px;position: relative;}
+border-radius:3px;position: relative;cursor: pointer;}
+#wrap .indexInfo .infoBtn:hover{opacity: 0.8;}
 #wrap .indexInfo .infoBtn .infoBtnBottom{width: 100%;height: 3px;position: absolute;bottom: 0;
  background: -webkit-linear-gradient(left, #7f42e8,#fd397b); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(right, #7f42e8,#fd397b); /* Opera 11.1 - 12.0 */
@@ -34,11 +43,11 @@ font-weight: 400;}
 #wrap .rightTable .tableContent .types h3{width: 20px;height: 20px;background: #d939a3;float: left;display: block;margin: 15px;}
 #wrap .cesium-viewer-bottom ,#wrap .cesium-timeline-main,#wrap .cesium-viewer-animationContainer{display: none;}
 
-.page2Echart{position: absolute;right: 0%;background: rgba(0,0,0,0.3);top: 70px;bottom: 20px;left: 70%;padding-left: 20px;opacity: 0}
-.page2Echart #echart1{position: absolute;width: 90%;height: 33.3%;}
-.page2Echart #echart2{position: absolute;width: 90%;height: 33.3%;top: 33.3%;}
-.page2Echart #echart3{position: absolute;width: 90%;height: 33.3%;top: 66.6%;}
-.page2Echart #echart3 h1{width: 100%;font-size: 18px;color: #fff;float: left;margin-top: 10px;}
+.page2Echart{position: absolute;right: 0%;background: #212227;top: 70px;bottom: 20px;left: 70%;padding-left: 20px;opacity: 0}
+.page2Echart #echart1{position: absolute;width: 88%;height: 29%;background: #272a31 !important;padding: 2%;border-radius: 2px;}
+.page2Echart #echart2{position: absolute;width: 88%;height: 29%;top: 34%;background: #272a31 !important;padding: 2%;border-radius: 2px;}
+.page2Echart #echart3{position: absolute;width: 88%;height: 29%;top: 68%;background: #272a31;padding: 2%;border-radius: 2px;}
+.page2Echart #echart3 h1{width: 100%;font-size: 18px;color: #fff;float: left;margin-top: 10px;padding-left: 10px;}
 .page2Echart #echart3 .boxContent{width: 90%;float: left;height: 40px;line-height: 40px;border-bottom: 1px #fff solid;margin-left: 5%;}
 .page2Echart #echart3 .boxContent h2{width: 20%;float: left;text-align: center;font-size: 14px;color: #fff;line-height: 50px;
 font-weight: 400;}
@@ -47,8 +56,12 @@ font-weight: 400;}
 z-index: 1000;opacity: 0;border: 1px #ccc solid;}
 .page3Echart .page3{width: 30%;float: left;height: 44%;margin-left: 2.5%;margin-top: 2%;border: 1px #717171 solid;
 border-radius: 5px;background:rgba(39,42,49,0.5);}
-.page3Echart .closed{position: absolute;width: 50px;height: 50px;right: -10px;color: #fff;top: -10px;cursor: pointer;}
+.page3Echart .closed{position: absolute;width: 50px;height: 50px;right: -5px;color: #fff;top: 0px;cursor: pointer;}
 .page3Echart .closed p{display: block;width: 50px;text-align: center;font-size: 30px;}
 .page3Echart .box{width: 90%;float: left;height: 30px;border-bottom: 1px #ccc solid;margin-left: 5%;}
 .page3Echart .box h2{font-size: 12px;color: #fff;font-weight: 400;width: 20%;float: left;text-align: center;line-height: 30px;}
 .page3Echart h1{font-size: 18px;width: 100%;line-height: 30px;color: #fff;margin-bottom: 10px;}
+
+.page3Echart{position: absolute;left: 100px;top: 90px;right: 35px;bottom: 40px;background: rgba(39,42,49,1);border-radius: 10px;
+z-index: 1000;border: 1px #ccc solid;}
+

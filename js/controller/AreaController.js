@@ -43,13 +43,13 @@ $at.AreaController.init = function(viewer){
 	function proArea(data){
 		var parseArea = new ParseArea(data,"p");
 		for (var m=0;m<parseArea.length;m++) {
-			var color = staticColors[parseInt(Math.random()*10)]
+			var color = staticColors[parseInt(Math.random()*5)+5]
 			var areaController = new AreaDraw("p"+$at.AreaController.provinceCitycode[m],parseArea[m],scene,color);
 		}
 	}
 	function iconInit(data){
 		var parseIcon = new ParseIcon(data,"i");
-		for (var m=0;m<parseIcon.length;m++) {
+		for (var m=0;m<3;m++) {
 			IconDraw("i"+parseIcon[m][2],parseIcon[m])
 		}
 	}
@@ -154,7 +154,7 @@ function IconDraw(IconType,parse){
 	    billboard : {
 	        image : "img/webwxgetmsgimg.png",
 	        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-	        scale : 0.5,
+	        scale : 1,
         	scaleByDistance : new Cesium.NearFarScalar(1.5e2, 0.3, 0.2, 0.1)
 	    }
 	});
@@ -162,7 +162,7 @@ function IconDraw(IconType,parse){
 	$at.AreaController.allIcon.push(billboards);
 }
 function AreaDraw(areaType,parse,scene,colors){
-	var color = Cesium.Color.fromCssColorString(colors).withAlpha(0.5);
+	var color = Cesium.Color.fromCssColorString(colors).withAlpha(0.1);
 	var geometryInstances = [];
 	for(var n=0;n<parse.length;n++){
 		var degreesArray=[];

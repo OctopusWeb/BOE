@@ -2,14 +2,14 @@ $at.AnimateController = {};
 $at.AnimateController.level1 = {};
 $at.AnimateController.level2 = {};
 $at.AnimateController.level3 = {};
+$at.AnimateController.level4 = {};
 $at.pageDom = {
 	indexInfo:$(".indexInfo"),
 	rightTable:$(".rightTable"),
 	cesiumContainer:$("#cesiumContainer"),
-	
 	page2Echart:$(".page2Echart"),
-	
-	page3Echart:$(".page3Echart")
+	page3Echart:$(".page3Echart"),
+	page4Echart:$(".page4Echart")
 }
 
 $at.AnimateController.level1.show = function(onComplete){
@@ -41,4 +41,10 @@ $at.AnimateController.level3.show = function(){
 $at.AnimateController.level3.hide = function(){
 	TweenMax.to($at.pageDom.page3Echart, 0.5, {opacity: "0",ease: Power4.easeIn});
 	TweenMax.to($at.pageDom.page3Echart, 0.5, {x: "-1920",y: "1080",ease: Power4.easeIN});
+}
+$at.AnimateController.level4.show = function(){
+	
+}
+$at.AnimateController.level4.hide = function(){
+	
 }

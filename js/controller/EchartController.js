@@ -11,7 +11,7 @@ $at.EchartController.init = function(){
 	var option2 = $at.EchartController.level2(titleColor,splitLineStyle,axisLabelColor,areaColor);
 	$at.EchartController.addEchart(document.getElementById("echart2"),option2);
 	var option4 = $at.EchartController.level4(titleColor,splitLineStyle,axisLabelColor,areaColor);
-	$at.EchartController.addEchart(document.getElementById("echart4"),option4);
+	var echart4 = $at.EchartController.addEchart(document.getElementById("echart4"),option4);
 	var option5 = $at.EchartController.level5(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart5"),option5);
 	var option6 = $at.EchartController.level6(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
@@ -20,10 +20,18 @@ $at.EchartController.init = function(){
 	$at.EchartController.addEchart(document.getElementById("echart7"),option7);
 	var option8 = $at.EchartController.level8(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart8"),option8);
+	echart4.on('click', function (params) {
+		echart4Event(params)
+	});
+	function echart4Event(params){
+		 console.log(params);
+	}
 }
+
 $at.EchartController.addEchart = function(dom,option){
 	var myChart = echarts.init(dom);
 	myChart.setOption(option);
+	return myChart;
 }
 $at.EchartController.level1 = function(titleColor,axisLabelColor,splitLineStyle,areaColor){
 	var option = {
@@ -158,7 +166,7 @@ $at.EchartController.level2 = function(titleColor,axisLabelColor,splitLineStyle,
 	            data : ['周一','周二','周三','周四','周五','周六','周日'],
 	            splitLine: {
 				    lineStyle: {
-				        color: titleColor
+				        color: "titleColor"
 				    }
 				},
 	            axisLabel: {
@@ -414,7 +422,7 @@ $at.EchartController.level5 = function(titleColor,axisLabelColor,splitLineStyle,
 	            data:[620, 732, 701, 734, 1090, 1130, 1120,620, 732, 701, 734, 1090],
 	            itemStyle: {
 	                normal: {
-	                    color: '#89abd5'
+	                    color: '#005ca2'
 	                }
 	            }
 	        }

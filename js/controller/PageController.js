@@ -2,7 +2,7 @@ var $at = {};
 
 $(function(){
 	pageInit();
-	$(".top h1").on("click",function(){
+	$(".menu").eq(0).on("click",function(){
 		$at.AnimateController.level2.hide(function(){
 			$at.AreaController.show();
 			$at.CesiumController.returnGuo();
@@ -10,9 +10,6 @@ $(function(){
 	})
 	$(".closed").on("click",function(){
 		$at.AnimateController.level3.hide()
-	})
-	$(".left").on("click",function(){
-		$at.AnimateController.level3.show()
 	})
 	TweenMax.set($at.pageDom.page3Echart, {x: "-1920",y: "1080"});
 })
@@ -22,4 +19,3 @@ function pageInit(){
 	$at.AreaController.init(viewer);
 	$at.EchartController.init();
 }
-

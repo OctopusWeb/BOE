@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BOE大数据分析平台</title>
+	</head>
+	<style type="text/css">
+		*{margin: 0;padding: 0;list-style: none;font-family: "微软雅黑";}
+		body,html{height: 100%;width: 100%;position: relative;}
+		#wrap{width: 100%;height: 100%;background: url(img/bg.jpg);position: absolute;overflow: hidden;}
+		#wrap .box{height: 370px;width: 400px;position: absolute;left: -200px;top: 50%;
+		background: #212227;margin-left: 50%;margin-top: -200px;border-radius: 2px;}
+		#wrap .bk{position: absolute;width: 100%;height: 100%;-webkit-filter: blur(10px); /* Chrome, Opera */
+       -moz-filter: blur(10px);
+        -ms-filter: blur(10px);    
+            filter: blur(10px);}
+		#wrap .bk img{width: 110%;height: 110%;position: absolute;top: -5%;left: -5%;}
+		#wrap .box h1{font-size: 24px;color: #ccc;width: 100%;text-align: center;line-height: 100px;font-weight: 400;}
+		#wrap .box h2{color: #ccc;font-size: 14px;width: 100%;text-align: center;line-height: 20px;font-weight: 400;margin-top: -20px;}
+		#wrap .box .inputBox{width: 80%;float: left;margin-left: 10%;background: #272a31;height: 40px;
+		margin-top: 20px;border-radius: 2px;overflow: hidden;border: 1px #2e3138 solid;}
+		#wrap .box .inputBox input{width: 95%;height: 40px;line-height: 40px;border: none;background: none;padding-left: 5%;color: #ccc;}
+		#wrap .box .submiteBtn{width: 80%;float: left;height: 40px;margin-top: 20px;margin-left: 10%;background: rgba(255,255,255,0.1);	
+		text-align: center;color: #fff;line-height: 40px;cursor: pointer;border-radius: 2px;overflow: hidden;border: 1px #2e3138 solid;}
+		#wrap .box span{font-size: 14px;color: #ccc;width: 100%;float: left;padding-left: 10%;line-height: 50px;cursor: pointer;}
+	</style>
+	<body>
+		<div id="wrap">
+			<div class="bk"><img src="img/bk.jpg"/></div>
+			<div class="box">
+				<h1>BOE大数据分析平台</h1>
+				<h2>登陆</h2>
+				<div class="user inputBox"><input type="text" placeholder="请输入用户名"/></div>
+				<div class="passWord inputBox"><input type="password" placeholder="请输入密码"/></div>
+				<div class="submiteBtn">登陆</div>
+				<span>忘记密码</span>
+			</div>
+		</div>
+	</body>
+	<script>
+		window.onload = function(){
+			document.getElementsByClassName("submiteBtn")[0].addEventListener("click",function(){
+				window.location.href="index.html";
+			})
+		}
+	</script>
+</html>
