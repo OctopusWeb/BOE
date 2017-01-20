@@ -8,7 +8,6 @@ $at.AreaController.cityCityname=[];
 $at.AreaController.allArear=[];
 $at.AreaController.allIcon=[];
 
-
 $at.AreaController.init = function(viewer){
 	$at.AreaController.LoadJson("data/proArea.json",proArea);
 	$at.AreaController.LoadJson("data/offlinelist.json",iconInit);
@@ -94,7 +93,6 @@ function advanceCity(pickID,viewer,onComplete,onComplete2){
 
 		   complete:onComplete
 		});
-		
 	}
 	else if(type == "i"){
 		onComplete2()

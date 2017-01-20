@@ -31,8 +31,8 @@ margin-top: 10px;width: 50%;text-align: right;height: 30px;overflow: hidden;}
 margin-right: 20px;width: 50%;text-align: right;overflow: hidden;height: 30px;}
 
 #wrap .rightTable{position: absolute;left: 70%;top: 70px;bottom: 20px;background: #272a31;right: 20px;margin-left: 100px;
-padding: 20px;overflow: hidden;}
-#wrap .rightTable h1{width: 100%;font-size: 14px;color: #fff;text-align: left;font-weight: 400;line-height:30px;m}
+padding: 20px;overflow: hidden;border-radius: 3px;}
+#wrap .rightTable h1{width: 100%;font-size: 14px;color: #fff;text-align: left;font-weight: 400;line-height:30px;}
 #wrap .rightTable .tableContent{width: 100%;border-bottom: 1px #ccc solid;float: left;}
 #wrap .rightTable .tableContent h2{color: #ccc;width: 50%;float: left;line-height: 50px;height: 50px;font-size: 14px;
 font-weight: 400;}
@@ -62,6 +62,66 @@ border-radius: 5px;background:rgba(39,42,49,0.5);}
 .page3Echart .box h2{font-size: 12px;color: #fff;font-weight: 400;width: 20%;float: left;text-align: center;line-height: 30px;}
 .page3Echart h1{font-size: 18px;width: 100%;line-height: 30px;color: #fff;margin-bottom: 10px;}
 
-.page3Echart{position: absolute;left: 100px;top: 90px;right: 35px;bottom: 40px;background: rgba(39,42,49,1);border-radius: 10px;
-z-index: 1000;border: 1px #ccc solid;}
+.page4Echart{position: absolute;left: 100px;top: 90px;right: 35px;bottom: 40px;background: rgba(39,42,49,1);border-radius: 10px;
+z-index: 1000;border: 1px #ccc solid;opacity: 0;}
+.page4Echart .box{width: 48%;float: left;height: 47%;margin: 1%;margin-bottom: 0;}
+.page4Echart .closed2{position: absolute;width: 50px;height: 50px;right: -5px;color: #fff;top: 0px;cursor: pointer;z-index: 10;}
+.page4Echart .closed2 p{display: block;width: 50px;text-align: center;font-size: 30px;}
 
+#menu1{position: absolute;left: 0;top: 0;bottom: 0;right: 0;}
+#menu2{position: absolute;left: 0;top: 0;bottom: 0;right: 0;}
+
+.page2{top: 70px;left: 70px;right: 20px;bottom: 20px;position: absolute;background: rgba(39,42,49,1);padding:20px;border-radius: 3px;}
+#echart14{width: 100%;height: 100%;}
+.loading{width: 100%;height: 100%;position: absolute;background: rgba(0,0,0,0.5);z-index: 10000;display: none;}
+.sk-cube-grid {position: absolute;width: 80px;height: 80px;left: 50%;top: 50%;margin-top: -40px;margin-left: -40px;}
+.sk-cube-grid .sk-cube {width: 33%;height: 33%; background-color: #89abd5;float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1); 
+  }
+}
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  } 
+}

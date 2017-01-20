@@ -8,7 +8,20 @@
 	<link rel="stylesheet" href="http://at.alicdn.com/t/font_zwnva91h1cq5mi.css" />
 	<body>
 		<div id="wrap">
-			<div id="cesiumContainer"></div>
+			<div class="loading">
+				<div class=" sk-cube-grid">
+				<div class="sk-cube sk-cube1"></div>
+			    <div class="sk-cube sk-cube2"></div>
+			    <div class="sk-cube sk-cube3"></div>
+			    <div class="sk-cube sk-cube4"></div>
+			    <div class="sk-cube sk-cube5"></div>
+			    <div class="sk-cube sk-cube6"></div>
+			    <div class="sk-cube sk-cube7"></div>
+			    <div class="sk-cube sk-cube8"></div>
+			    <div class="sk-cube sk-cube9"></div>
+			    </div>
+			</div>
+			
 			<div class="left">
 				<div class="menu">
 					<p class="icon iconfont icon-fenxi"></p>
@@ -23,251 +36,262 @@
 				<h2>选择日期:</h2>
 				<input onclick="laydate()">
 			</div>
-			<div class="indexInfo">
-				<div class="infoBtn infoBtnFirst">
-					<p class="icon iconfont icon-chejianchanliang"></p>
-					<h3>总产量</h3>
-					<span>20,202,880</span>
-					<div class="infoBtnBottom"></div>
+			<div id="menu1">
+				<div id="cesiumContainer"></div>
+				<div class="indexInfo">
+					<div class="infoBtn infoBtnFirst">
+						<p class="icon iconfont icon-chejianchanliang"></p>
+						<h3>总产量</h3>
+						<span>20,202,880</span>
+						<div class="infoBtnBottom"></div>
+					</div>
+					<div class="infoBtn">
+						<p class="icon iconfont icon-yuangong"></p>
+						<h3>员工总数</h3>
+						<span>20,202,880</span>
+						<div class="infoBtnBottom"></div>
+					</div>
+					<div class="infoBtn">
+						<p class="icon iconfont icon-shippingreturn"></p>
+						<h3>Total Shipping</h3>
+						<span>20,202,880</span>
+						<div class="infoBtnBottom"></div>
+					</div>
+					<div class="infoBtn">
+						<p class="icon iconfont icon-gongchang"></p>
+						<h3>Start Factory</h3>
+						<span>20,202,880</span>
+						<div class="infoBtnBottom"></div>
+					</div>
 				</div>
-				<div class="infoBtn">
-					<p class="icon iconfont icon-yuangong"></p>
-					<h3>员工总数</h3>
-					<span>20,202,880</span>
-					<div class="infoBtnBottom"></div>
-				</div>
-				<div class="infoBtn">
-					<p class="icon iconfont icon-shippingreturn"></p>
-					<h3>Total Shipping</h3>
-					<span>20,202,880</span>
-					<div class="infoBtnBottom"></div>
-				</div>
-				<div class="infoBtn">
-					<p class="icon iconfont icon-gongchang"></p>
-					<h3>Start Factory</h3>
-					<span>20,202,880</span>
-					<div class="infoBtnBottom"></div>
-				</div>
-			</div>
-			<div class="rightTable">
-				<h1>工厂分类统计</h1>
-				<div class="tableContent">
-					<h2 class="types">分类</h2>
-					<h2>各工厂总量</h2>
-					<h4>总工厂良率</h4>
-				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
-				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
-				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
-				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
-				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
-				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
-				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
-				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
-				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
-				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
-				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
-				</div>
-					
+				<div class="rightTable">
+					<h1>工厂分类统计</h1>
 					<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
+						<h2 class="types">分类</h2>
+						<h2>各工厂总量</h2>
+						<h4>总工厂良率</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+						
+						<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					<div class="tableContent">
+						<div class="types"><h3></h3></div>
+						<h2><strong>B1</strong>56,4000</h2>
+						<h4>88.02%</h4>
+					</div>
+					
 				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
+				<div class="page2Echart">
+					<div id="echart1" class="page2Animate"></div>
+					<div id="echart2" class="page2Animate"></div>
+					<div id="echart3" class="page2Animate">
+						<h1>各工厂11月13日生产情况</h1>
+						<div class="boxContent">
+							<h2>分厂</h2>
+							<h2>投入目标</h2>
+							<h2>投入</h2>
+							<h2>月累计投入量</h2>
+							<h2>月累计完成率</h2>
+						</div>
+						
+						<div class="boxContent">
+							<h2>Cell</h2>
+							<h2>75,000</h2>
+							<h2>2,228</h2>
+							<h2>33,228</h2>
+							<h2>33.4%</h2>
+						</div>
+						<div class="boxContent">
+							<h2>Cell</h2>
+							<h2>75,000</h2>
+							<h2>2,228</h2>
+							<h2>33,228</h2>
+							<h2>33.4%</h2>
+						</div>
+						<div class="boxContent">
+							<h2>Cell</h2>
+							<h2>75,000</h2>
+							<h2>2,228</h2>
+							<h2>33,228</h2>
+							<h2>33.4%</h2>
+						</div>
+						<div class="boxContent">
+							<h2>Cell</h2>
+							<h2>75,000</h2>
+							<h2>2,228</h2>
+							<h2>33,228</h2>
+							<h2>33.4%</h2>
+						</div>
+					</div>
 				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
+				<div class="page3Echart">
+					<div class="closed">
+						<p class="icon iconfont icon-guanbi"></p>
+					</div>
+					<div id="echart4" class="page3"></div>
+					<div id="echart5" class="page3"></div>
+					<div id="echart6" class="page3"></div>
+					<div id="echart7" class="page3"></div>
+					<div id="echart8" class="page3"></div>
+					<div id="echart9" class="page3">
+						<h1>Defet Detail</h1>
+						<div class="box">
+							<h2>Defect Type</h2>
+							<h2>D Befor Type</h2>
+							<h2>D Befor Type</h2>
+							<h2>D Befor Type</h2>
+							<h2>D Befor Type</h2>
+						</div>
+						<div class="box">
+							<h2>Dcs</h2>
+							<h2>0</h2>
+							<h2>0.00%</h2>
+							<h2>1</h2>
+							<h2>0.01%</h2>
+						</div>
+						<div class="box">
+							<h2>Dcs</h2>
+							<h2>0</h2>
+							<h2>0.00%</h2>
+							<h2>1</h2>
+							<h2>0.01%</h2>
+						</div>
+						<div class="box">
+							<h2>Dcs</h2>
+							<h2>0</h2>
+							<h2>0.00%</h2>
+							<h2>1</h2>
+							<h2>0.01%</h2>
+						</div>
+						<div class="box">
+							<h2>Dcs</h2>
+							<h2>0</h2>
+							<h2>0.00%</h2>
+							<h2>1</h2>
+							<h2>0.01%</h2>
+						</div>
+						<div class="box">
+							<h2>Dcs</h2>
+							<h2>0</h2>
+							<h2>0.00%</h2>
+							<h2>1</h2>
+							<h2>0.01%</h2>
+						</div>
+						<div class="box">
+							<h2>Dcs</h2>
+							<h2>0</h2>
+							<h2>0.00%</h2>
+							<h2>1</h2>
+							<h2>0.01%</h2>
+						</div>
+						<div class="box">
+							<h2>Dcs</h2>
+							<h2>0</h2>
+							<h2>0.00%</h2>
+							<h2>1</h2>
+							<h2>0.01%</h2>
+						</div>
+						<div class="box">
+							<h2>Dcs</h2>
+							<h2>0</h2>
+							<h2>0.00%</h2>
+							<h2>1</h2>
+							<h2>0.01%</h2>
+						</div>
+						<div class="box">
+							<h2>Dcs</h2>
+							<h2>0</h2>
+							<h2>0.00%</h2>
+							<h2>1</h2>
+							<h2>0.01%</h2>
+						</div>
+					</div>
 				</div>
-				<div class="tableContent">
-					<div class="types"><h3></h3></div>
-					<h2><strong>B1</strong>56,4000</h2>
-					<h4>88.02%</h4>
+				<div class="page4Echart">
+					<div class="closed2">
+						<p class="icon iconfont icon-guanbi"></p>
+					</div>
+					<div class="box" id="echart10">1</div>
+					<div class="box" id="echart11">2</div>
+					<div class="box" id="echart12">3</div>
+					<div class="box" id="echart13">4</div>
 				</div>
+				<div class="leftTable"></div>
 				
 			</div>
-			<div class="page2Echart">
-				<div id="echart1" class="page2Animate"></div>
-				<div id="echart2" class="page2Animate"></div>
-				<div id="echart3" class="page2Animate">
-					<h1>各工厂11月13日生产情况</h1>
-					<div class="boxContent">
-						<h2>分厂</h2>
-						<h2>投入目标</h2>
-						<h2>投入</h2>
-						<h2>月累计投入量</h2>
-						<h2>月累计完成率</h2>
-					</div>
-					
-					<div class="boxContent">
-						<h2>Cell</h2>
-						<h2>75,000</h2>
-						<h2>2,228</h2>
-						<h2>33,228</h2>
-						<h2>33.4%</h2>
-					</div>
-					<div class="boxContent">
-						<h2>Cell</h2>
-						<h2>75,000</h2>
-						<h2>2,228</h2>
-						<h2>33,228</h2>
-						<h2>33.4%</h2>
-					</div>
-					<div class="boxContent">
-						<h2>Cell</h2>
-						<h2>75,000</h2>
-						<h2>2,228</h2>
-						<h2>33,228</h2>
-						<h2>33.4%</h2>
-					</div>
-					<div class="boxContent">
-						<h2>Cell</h2>
-						<h2>75,000</h2>
-						<h2>2,228</h2>
-						<h2>33,228</h2>
-						<h2>33.4%</h2>
-					</div>
+			<div id="menu2">
+				<div class="page2">
+					<div id="echart14"></div>
 				</div>
-			</div>
-			<div class="page3Echart">
-				<div class="closed">
-					<p class="icon iconfont icon-guanbi"></p>
-				</div>
-				<div id="echart4" class="page3"></div>
-				<div id="echart5" class="page3"></div>
-				<div id="echart6" class="page3"></div>
-				<div id="echart7" class="page3"></div>
-				<div id="echart8" class="page3"></div>
-				<div id="echart9" class="page3">
-					<h1>Defet Detail</h1>
-					<div class="box">
-						<h2>Defect Type</h2>
-						<h2>D Befor Type</h2>
-						<h2>D Befor Type</h2>
-						<h2>D Befor Type</h2>
-						<h2>D Befor Type</h2>
-					</div>
-					<div class="box">
-						<h2>Dcs</h2>
-						<h2>0</h2>
-						<h2>0.00%</h2>
-						<h2>1</h2>
-						<h2>0.01%</h2>
-					</div>
-					<div class="box">
-						<h2>Dcs</h2>
-						<h2>0</h2>
-						<h2>0.00%</h2>
-						<h2>1</h2>
-						<h2>0.01%</h2>
-					</div>
-					<div class="box">
-						<h2>Dcs</h2>
-						<h2>0</h2>
-						<h2>0.00%</h2>
-						<h2>1</h2>
-						<h2>0.01%</h2>
-					</div>
-					<div class="box">
-						<h2>Dcs</h2>
-						<h2>0</h2>
-						<h2>0.00%</h2>
-						<h2>1</h2>
-						<h2>0.01%</h2>
-					</div>
-					<div class="box">
-						<h2>Dcs</h2>
-						<h2>0</h2>
-						<h2>0.00%</h2>
-						<h2>1</h2>
-						<h2>0.01%</h2>
-					</div>
-					<div class="box">
-						<h2>Dcs</h2>
-						<h2>0</h2>
-						<h2>0.00%</h2>
-						<h2>1</h2>
-						<h2>0.01%</h2>
-					</div>
-					<div class="box">
-						<h2>Dcs</h2>
-						<h2>0</h2>
-						<h2>0.00%</h2>
-						<h2>1</h2>
-						<h2>0.01%</h2>
-					</div>
-					<div class="box">
-						<h2>Dcs</h2>
-						<h2>0</h2>
-						<h2>0.00%</h2>
-						<h2>1</h2>
-						<h2>0.01%</h2>
-					</div>
-					<div class="box">
-						<h2>Dcs</h2>
-						<h2>0</h2>
-						<h2>0.00%</h2>
-						<h2>1</h2>
-						<h2>0.01%</h2>
-					</div>
-				</div>
-			</div>
-			<div class="page4Echart">
-				<div class="box">1</div>
-				<div class="box">2</div>
-				<div class="box">3</div>
-				<div class="box">4</div>
-			</div>
-			<div class="leftTable"></div>
-			
+			</div>		
 		</div>
 		
 	</body>

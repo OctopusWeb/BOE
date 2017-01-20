@@ -9,7 +9,9 @@ $at.pageDom = {
 	cesiumContainer:$("#cesiumContainer"),
 	page2Echart:$(".page2Echart"),
 	page3Echart:$(".page3Echart"),
-	page4Echart:$(".page4Echart")
+	page4Echart:$(".page4Echart"),
+	menu1:$(".menu1"),
+	menu1:$(".menu2")
 }
 
 $at.AnimateController.level1.show = function(onComplete){
@@ -43,8 +45,16 @@ $at.AnimateController.level3.hide = function(){
 	TweenMax.to($at.pageDom.page3Echart, 0.5, {x: "-1920",y: "1080",ease: Power4.easeIN});
 }
 $at.AnimateController.level4.show = function(){
-	
+	TweenMax.to($at.pageDom.page4Echart, 0.5, {x: "0",y: "0",ease: Power4.easeOut});
+	TweenMax.to($at.pageDom.page4Echart, 0.5, {opacity: "1",ease: Power4.easeOut});
 }
 $at.AnimateController.level4.hide = function(){
-	
+	TweenMax.to($at.pageDom.page4Echart, 0.5, {opacity: "0",ease: Power4.easeIn});
+	TweenMax.to($at.pageDom.page4Echart, 0.5, {x: "-1920",y: "1080",ease: Power4.easeIN});
+}
+$at.AnimateController.menu = function(showMenu,hideMenu){
+	TweenMax.to(showMenu, 0.5, {opacity: "1",ease: Power4.easeIn});
+	TweenMax.to(showMenu, 0.5, {x: "0",ease: Power4.easeIN});
+	TweenMax.to(hideMenu, 0.5, {x: "4000px",ease: Power4.easeIN});
+	TweenMax.to(hideMenu, 0.5, {opacity: "0",ease: Power4.easeIn});
 }
