@@ -2,6 +2,7 @@ var $at = {};
 
 $(function(){
 	pageInit();
+
 	$(".menu").eq(0).on("click",function(){
 		$at.AnimateController.menu($("#menu1"),$("#menu2"));
 		$at.AnimateController.level2.hide(function(){

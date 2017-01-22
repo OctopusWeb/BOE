@@ -54,13 +54,19 @@ font-weight: 400;}
 
 .page3Echart{position: absolute;left: 80px;right: 15px;top: 70px;bottom: 20px;background: rgba(39,42,49,0.9);border-radius: 10px;
 z-index: 1000;opacity: 0;border: 1px #ccc solid;}
-.page3Echart .page3{width: 30%;float: left;height: 44%;margin-left: 2.5%;margin-top: 2%;border: 1px #717171 solid;
+.page3Echart .page3{width: 46%;float: left;height: 44%;margin-left: 2.5%;margin-top: 2%;border: 1px #717171 solid;
 border-radius: 5px;background:rgba(39,42,49,0.5);}
 .page3Echart .closed{position: absolute;width: 50px;height: 50px;right: -5px;color: #fff;top: 0px;cursor: pointer;}
 .page3Echart .closed p{display: block;width: 50px;text-align: center;font-size: 30px;}
 .page3Echart .box{width: 90%;float: left;height: 30px;border-bottom: 1px #ccc solid;margin-left: 5%;}
 .page3Echart .box h2{font-size: 12px;color: #fff;font-weight: 400;width: 20%;float: left;text-align: center;line-height: 30px;}
 .page3Echart h1{font-size: 18px;width: 100%;line-height: 30px;color: #fff;margin-bottom: 10px;}
+.page3Echart .page3Echart_1{position: absolute;height: 100%;width: 100%;}
+.page3Echart .page3Echart_2{position: absolute;height: 100%;width: 100%;left: 100%;}
+.page3Echart .page4{float: left;width: 50%;height: 90%;margin-top: 3%;margin-left: 2%;border-radius: 5px;
+border: 1px #717171  solid;}
+.page3Echart .page5{float: left;width: 40%;height: 27%;border-radius: 5px;border: 1px #717171  solid;margin-top: 2%;margin-left: 3%;}
+.page3Echart #echart2_2{margin-top: 3%;}
 
 .page4Echart{position: absolute;left: 100px;top: 90px;right: 35px;bottom: 40px;background: rgba(39,42,49,1);border-radius: 10px;
 z-index: 1000;border: 1px #ccc solid;opacity: 0;}

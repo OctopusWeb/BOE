@@ -1,52 +1,64 @@
 $at.EchartController = {};
+var titleColor="rgba(255,255,255,0.3)";
+var splitLineStyle="rgba(0,0,0,0.1)";
+var axisLabelColor="#7f41ee";
+var areaColor="#005494";
+var legendColor="#9fa0a0";
 $at.EchartController.init = function(){
-	var titleColor="rgba(255,255,255,0.3)";
-	var splitLineStyle="rgba(0,0,0,0.1)";
-	var axisLabelColor="#7f41ee";
-	var areaColor="#005494";
-	var legendColor="#9fa0a0";
-	
+//	$at.EchartController.page1Init();
+//	$at.EchartController.page2Init();
+//	$at.EchartController.page3Init();
+}
+$at.EchartController.page1Init = function(){
 	var option1 = $at.EchartController.level1(titleColor,splitLineStyle,axisLabelColor,areaColor);
 	$at.EchartController.addEchart(document.getElementById("echart1"),option1);
 	var option2 = $at.EchartController.level2(titleColor,splitLineStyle,axisLabelColor,areaColor);
 	$at.EchartController.addEchart(document.getElementById("echart2"),option2);
+}
+$at.EchartController.page2Init = function(){
 	var option4 = $at.EchartController.level4(titleColor,splitLineStyle,axisLabelColor,areaColor);
 	var echart4 = $at.EchartController.addEchart(document.getElementById("echart4"),option4);
 	var option5 = $at.EchartController.level5(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart5"),option5);
-	var option6 = $at.EchartController.level6(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
-	$at.EchartController.addEchart(document.getElementById("echart6"),option6);
 	var option7 = $at.EchartController.level7(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart7"),option7);
 	var option8 = $at.EchartController.level8(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart8"),option8);
+	echart4.on('click', function (params) {
+		$at.EchartController.page2_1Init();
+//		$(".loading").show();
+//		setTimeout(function(){
+//			$at.AnimateController.level4.show();
+//			$at.EchartController.page3Init();
+//			$(".loading").hide();
+//		},5000)
+//		
+	});
+}
+$at.EchartController.page2_1Init = function(){
+	var option2_1 = $at.EchartController.level2_1(titleColor,splitLineStyle,axisLabelColor,areaColor);
+	$at.EchartController.addEchart(document.getElementById("echart2_1"),option2_1);
+	var option2_2 = $at.EchartController.level2_2(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
+	$at.EchartController.addEchart(document.getElementById("echart2_2"),option2_2);
+	var option2_3 = $at.EchartController.level2_3(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
+	$at.EchartController.addEchart(document.getElementById("echart2_3"),option2_3);
+	var option2_4 = $at.EchartController.level2_4(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
+	$at.EchartController.addEchart(document.getElementById("echart2_4"),option2_4);
+}
+
+$at.EchartController.page3Init = function(){
 	var option10 = $at.EchartController.level10(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart10"),option10);
 	var option11 = $at.EchartController.level11(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart11"),option11);
 	var option12 = $at.EchartController.level12(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart12"),option12);
-	
 	$.getJSON("data/echart13.json",function(data){
 		var option13 = $at.EchartController.level13(titleColor,splitLineStyle,axisLabelColor,areaColor,data);
 		$at.EchartController.addEchart(document.getElementById("echart13"),option13);
 	})
 	var option14 = $at.EchartController.level14(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart14"),option14);
-	
-	
-	echart4.on('click', function (params) {
-		echart4Event(params);
-		$(".loading").show();
-		setTimeout(function(){
-			$at.AnimateController.level4.show();
-			$(".loading").hide();
-		},5000)
-		
-	});
-	function echart4Event(params){
-		 console.log(params);
-	}
 }
 
 $at.EchartController.addEchart = function(dom,option){
@@ -271,93 +283,85 @@ $at.EchartController.level2 = function(titleColor,axisLabelColor,splitLineStyle,
 	return option;
 }
 $at.EchartController.level4 = function(titleColor,axisLabelColor,splitLineStyle,areaColor){
-	var option = {	
-		title: {
-	        text: '各产品型号Array工厂良率',
-	        textStyle: {
-                color: "#fff",
-                fontSize: 16
-            }
-	    },
+	var option = {
 	    tooltip : {
-	        trigger: 'axis'
-	    },
-	    legend: {
-	        data:['破案数','降水量'],
-	        textStyle:{
-	        	color:axisLabelColor
+	        trigger: 'axis',
+	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
 	        }
 	    },
-	    calculable : true,
-	    xAxis :{
-            type : 'category',
-            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
-            splitLine:{
-            	lineStyle:{
-            		color:areaColor
-            	}
-            },
-            axisLine:{
-            	lineStyle:{
-            		color:areaColor
-            	}
-            },
-            axisLabel:{
-            	textStyle:{
-            		color: "#fff",
-            		fontSize:12
-            	}
+	    legend: {
+	        data: ['前端摄像机情况'],
+	        textStyle: {
+                color: legendColor
             }
-        },
-	    yAxis : {
-            type : 'value',
-            splitLine:{
-            	lineStyle:{
-            		color:splitLineStyle
-            	}
+	    },
+	    grid: {
+	        left: '1%',
+	        right: '4%',
+	        bottom: '3%',
+	        containLabel: true
+	    },
+	    xAxis:  {
+	        type: 'value',
+	        splitLine: {
+			    lineStyle: {
+			        color: splitLineStyle
+			    }
+			},
+			axisLine: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
             },
-            axisLine:{
-            	lineStyle:{
-            		color:axisLabelColor
-            	}
-            },
-            axisLabel:{
-            	textStyle:{
-            		color: "#fff",
-            		fontSize:12
-            	}
+            axisLabel: {
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 12
+                }
             }
-        },
-	    series : [
+	    },
+	    yAxis: {
+	        type: 'category',
+	        data: ['数字800W','数字500W','数字300W(1280P)','数字200W(1080P)','数字13W(720P)','模拟700以上','模拟500或以下'],
+	        splitLine: {
+			    lineStyle: {
+			        color: splitLineStyle
+			    }
+			},
+			axisLine: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 12
+                }
+            },
+            axisTick: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
+            },
+	    },
+	    series: [
 	        {
-	            type:'bar',
-	            data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
-	            itemStyle:{
-	            	normal:{
-	            		color:areaColor
-	            	}
+	            name: '前端摄像机情况',
+	            type: 'bar',
+	            stack: '总量',
+	            label: {
+	                normal: {
+	                    show: true,
+	                    position: 'insideRight'
+	                }
 	            },
-	            markPoint : {
-	                data : [
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 0, yAxis: 2.0},
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 1, yAxis: 4.9},
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 2, yAxis: 7.0},
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 3, yAxis: 23.2},
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 4, yAxis: 25.6},
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 5, yAxis: 76.7},
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 6, yAxis: 135.6},
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 7, yAxis: 162.2},
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 8, yAxis: 32.6},
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 9, yAxis: 20.0},
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 10, yAxis: 6.4},
-	                    {name : '150MP_MBP', value : 2.0, xAxis: 11, yAxis: 3.3}
-	
-	                ]
-	            },
-	            markLine : {
-	                data : [
-	                    {type : 'average', name: '平均值'}
-	                ]
+	            data: [820, 832, 901, 934, 1290, 1330, 1320],
+	            itemStyle: {
+	                normal: {
+	                    color: areaColor
+	                }
 	            }
 	        }
 	    ]
@@ -366,53 +370,148 @@ $at.EchartController.level4 = function(titleColor,axisLabelColor,splitLineStyle,
 }
 $at.EchartController.level5 = function(titleColor,axisLabelColor,splitLineStyle,areaColor,legendColor){
 	var option = {
-		title: {
-	        text: 'Array Fab Yield',
-	        textStyle: {
-                color: "#fff",
-                fontSize: 16
-            }
-	    },
 	    tooltip : {
-	        trigger: 'axis',
-	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-	        }
+	        trigger: 'axis'
 	    },
 	    grid: {
-	        left: '3%',
-	        right: '4%',
-	        bottom: '3%',
+	        left: '5%',
+	        right: '8%',
+	        bottom: '10%',
 	        containLabel: true
 	    },
-	    xAxis : {
-            type : 'category',
-            splitLine: {
-			    lineStyle: {
-			        color: splitLineStyle
-			    }
-			},
-            axisLine: {
-                lineStyle: {
-                    color: axisLabelColor
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color: "#fff",
-                    fontSize: 12
-                }
-            },
-            axisTick: {
-                lineStyle: {
-                    color: axisLabelColor
-                }
-            },
-            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
-	    },
-	    yAxis :{
-            type : 'value',
-            splitLine: {
+	    xAxis : [
+	        {
+	            type : 'category',
+	            splitLine: {
+				    lineStyle: {
+				        color: splitLineStyle
+				    }
+				},
+				axisLine: {
+                    lineStyle: {
+                        color: axisLabelColor
+                    }
+                },
+	            boundaryGap : false,
+	            data : [
+		            	{
+						    value: '东城区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '西城区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '石景山区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '丰台区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '朝阳区 ',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '海淀区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '延庆区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '昌平区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '顺义区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '怀柔区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '密云区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '平谷区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '通州区',
+						    textStyle: {
+						        fontSize:12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '大兴区',
+						    textStyle: {
+						        fontSize:12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '房山区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						},
+						{
+						    value: '门头沟区',
+						    textStyle: {
+						        fontSize: 12,
+						        color: "#fff"
+						    }
+						}
+					    ]
+	        }
+	    ],
+	    yAxis : {
+	    	type:"value",
+	    	splitLine: {
 			    lineStyle: {
 			        color: splitLineStyle
 			    }
@@ -436,148 +535,40 @@ $at.EchartController.level5 = function(titleColor,axisLabelColor,splitLineStyle,
         },
 	    series : [
 	        {
-	            name:'筹备建设',
-	            type:'bar',
-	            stack: '搜索引擎',
-	            barWidth : 16,
-	            data:[620, 732, 701, 734, 1090, 1130, 1120,620, 732, 701, 734, 1090],
-	            itemStyle: {
+	            type:'line',
+	            smooth: true,
+	            stack: '总量',
+	            label: {
 	                normal: {
-	                    color: '#005ca2'
+	                    show: true,
+	                    position: 'top',
+	                    textStyle: {
+	                        color: axisLabelColor,
+	                        fontSize: 22
+	                    }
 	                }
-	            }
+	            },
+	            areaStyle: {
+		            normal: {
+	                    color: areaColor
+	                }
+                },
+                lineStyle: {
+	                normal: {
+	                	color: axisLabelColor,
+	                    width: 2
+	                }
+	            },
+	            data:[320, 360, 400, 380, 320, 290, 330, 420, 450, 410, 310, 380, 420, 510, 580, 490]
 	        }
 	    ]
 	};
-	return option
-}
-$at.EchartController.level6 = function(titleColor,axisLabelColor,splitLineStyle,areaColor,legendColor){
-	var option = {
-		title: {
-	        text: 'Array Fab Yield',
-	        textStyle: {
-                color: "#fff",
-                fontSize: 16
-            }
-	    },
-	    tooltip : {
-	        trigger: 'axis',
-	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-	        }
-	    },
-	    grid: {
-	        left: '3%',
-	        right: '4%',
-	        bottom: '3%',
-	        containLabel: true
-	    },
-	    xAxis : {
-            type : 'category',
-            splitLine: {
-			    lineStyle: {
-			        color: splitLineStyle
-			    }
-			},
-            axisLine: {
-                lineStyle: {
-                    color: axisLabelColor
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color: "#fff",
-                    fontSize: 12
-                }
-            },
-            axisTick: {
-                lineStyle: {
-                    color: axisLabelColor
-                }
-            },
-            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
-	    },
-	    yAxis :{
-            type : 'value',
-            splitLine: {
-			    lineStyle: {
-			        color: splitLineStyle
-			    }
-			},
-            axisLine: {
-                lineStyle: {
-                    color: axisLabelColor
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color: "#fff",
-                    fontSize: 12
-                }
-            },
-            axisTick: {
-                lineStyle: {
-                    color: axisLabelColor
-                }
-            }
-        },
-	    series : [
-	        {
-	            name:'筹备建设',
-	            type:'bar',
-	            stack: '搜索引擎',
-	            barWidth : 16,
-	            data:[620, 732, 701, 734, 1090, 1130, 1120,620, 732, 701, 734, 1090],
-	            itemStyle: {
-	                normal: {
-	                    color: '#89abd5'
-	                }
-	            }
-	        },
-	        {
-	            name:'准备施工',
-	            type:'bar',
-	            stack: '搜索引擎',
-	            barWidth : 16,
-	            data:[120, 132, 101, 134, 290, 230, 220,120, 132, 101, 134, 290],
-	            itemStyle: {
-	                normal: {
-	                    color: '#356eb6'
-	                }
-	            }
-	        },
-	        {
-	            name:'正在施工',
-	            type:'bar',
-	            stack: '搜索引擎',
-	            barWidth : 16,
-	            data:[60, 72, 71, 74, 190, 130, 110,60, 72, 71, 74, 190],
-	            itemStyle: {
-	                normal: {
-	                    color: '#21426a'
-	                }
-	            }
-	        },
-	        {
-	            name:'等待上线',
-	            type:'bar',
-	            stack: '搜索引擎',
-	            barWidth : 16,
-	            data:[62, 82, 91, 84, 109, 110, 120,62, 82, 91, 84, 109],
-	            itemStyle: {
-	                normal: {
-	                    color: '#003a66'
-	                }
-	            }
-	        }
-	    ]
-	};
-	return option
+	return option; 
 }
 $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,areaColor,legendColor){
 	var option = {
 		title: {
-	        text: 'Befor Repair Yield',
+	        text: 'After Repair Yield',
 	        textStyle: {
                 color: "#fff",
                 fontSize: 16
@@ -589,6 +580,7 @@ $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,
 	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
 	        }
 	    },
+	    
 	    grid: {
 	        left: '3%',
 	        right: '4%',
@@ -618,7 +610,7 @@ $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,
                     color: axisLabelColor
                 }
             },
-            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
 	    },
 	    yAxis :{
             type : 'value',
@@ -634,7 +626,7 @@ $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,
             },
             axisLabel: {
                 textStyle: {
-                    color: "#fff",
+                    color:  "#fff",
                     fontSize: 12
                 }
             },
@@ -646,35 +638,10 @@ $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,
         },
 	    series : [
 	        {
-	            name:'筹备建设',
+	            name:'还未覆盖',
 	            type:'bar',
-	            stack: '搜索引擎',
-	            barWidth : 16,
-	            data:[620, 732, 701, 734, 1090, 1130, 1120,620, 732, 701, 734, 1090],
-	            itemStyle: {
-	                normal: {
-	                    color: '#89abd5'
-	                }
-	            }
-	        },
-	        {
-	            name:'准备施工',
-	            type:'bar',
-	            stack: '搜索引擎',
-	            barWidth : 16,
-	            data:[120, 132, 101, 134, 290, 230, 220,120, 132, 101, 134, 290],
-	            itemStyle: {
-	                normal: {
-	                    color: '#356eb6'
-	                }
-	            }
-	        },
-	        {
-	            name:'正在施工',
-	            type:'bar',
-	            stack: '搜索引擎',
-	            barWidth : 16,
-	            data:[60, 72, 71, 74, 190, 130, 110,60, 72, 71, 74, 190],
+	            stack: '广告',
+	            data:[220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290],
 	            itemStyle: {
 	                normal: {
 	                    color: '#21426a'
@@ -682,14 +649,36 @@ $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,
 	            }
 	        },
 	        {
-	            name:'等待上线',
+	            name:'计划建设',
 	            type:'bar',
-	            stack: '搜索引擎',
-	            barWidth : 16,
-	            data:[62, 82, 91, 84, 109, 110, 120,62, 82, 91, 84, 109],
+	            stack: '广告',
+	            data:[150, 232, 201, 154, 190, 330, 410,150, 232, 201, 154, 190],
 	            itemStyle: {
 	                normal: {
-	                    color: '#003a66'
+	                    color: '#356eb6'
+	                }
+	            }
+	        },
+	        
+	        {
+	            name:'筹备建设',
+	            type:'bar',
+	            stack: '搜索引擎',
+	            data:[620, 732, 701, 734, 1090, 1130, 1120,620, 732, 701, 734, 1090],
+	            itemStyle: {
+	                normal: {
+	                    color: '#e8640a'
+	                }
+	            }
+	        },
+	        {
+	            name:'准备施工',
+	            type:'bar',
+	            stack: '搜索引擎',
+	            data:[120, 132, 101, 134, 290, 230, 220,120, 132, 101, 134, 290],
+	            itemStyle: {
+	                normal: {
+	                    color: '#ee8d03'
 	                }
 	            }
 	        }
@@ -773,7 +762,7 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	        {
 	            name:'不覆盖',
 	            type:'bar',
-	            stack: '点位',
+	            stack: '点位1',
 	            data:[120, 132, 101, 134, 90, 230, 210,120, 132, 101, 134, 90],
 	            itemStyle: {
 	                normal: {
@@ -784,7 +773,7 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	        {
 	            name:'还未覆盖',
 	            type:'bar',
-	            stack: '广告',
+	            stack: '广告1',
 	            data:[220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290],
 	            itemStyle: {
 	                normal: {
@@ -795,7 +784,7 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	        {
 	            name:'计划建设',
 	            type:'bar',
-	            stack: '广告',
+	            stack: '广告2',
 	            data:[150, 232, 201, 154, 190, 330, 410,150, 232, 201, 154, 190],
 	            itemStyle: {
 	                normal: {
@@ -807,7 +796,7 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	        {
 	            name:'筹备建设',
 	            type:'bar',
-	            stack: '搜索引擎',
+	            stack: '搜索引擎1',
 	            data:[620, 732, 701, 734, 1090, 1130, 1120,620, 732, 701, 734, 1090],
 	            itemStyle: {
 	                normal: {
@@ -818,7 +807,7 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	        {
 	            name:'准备施工',
 	            type:'bar',
-	            stack: '搜索引擎',
+	            stack: '搜索引擎2',
 	            data:[120, 132, 101, 134, 290, 230, 220,120, 132, 101, 134, 290],
 	            itemStyle: {
 	                normal: {
@@ -829,7 +818,7 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	        {
 	            name:'正在施工',
 	            type:'bar',
-	            stack: '搜索引擎',
+	            stack: '搜索引擎3',
 	            data:[60, 72, 71, 74, 190, 130, 110,60, 72, 71, 74, 190],
 	            itemStyle: {
 	                normal: {
@@ -840,7 +829,7 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	        {
 	            name:'等待上线',
 	            type:'bar',
-	            stack: '搜索引擎',
+	            stack: '搜索引擎4',
 	            data:[62, 82, 91, 84, 109, 110, 120,62, 82, 91, 84, 109],
 	            itemStyle: {
 	                normal: {
@@ -1502,6 +1491,313 @@ $at.EchartController.level14 = function(titleColor,axisLabelColor,splitLineStyle
 	            },
 	            areaStyle: {normal: {}},
 	            data:[820, 932, 901, 934, 1290, 1330, 1320]
+	        }
+	    ]
+	};
+	return option;
+}
+
+$at.EchartController.level2_1 = function(titleColor,axisLabelColor,splitLineStyle,areaColor){
+	var option = {
+	    tooltip: {
+	        trigger: 'axis'
+	    },
+	    legend: {
+	        x: 'center',
+	        data:['某软件','某主食手机','某水果手机','降水量','蒸发量']
+	    },
+	    radar: [
+	        {
+	            indicator: [
+	                {text: '品牌', max: 100},
+	                {text: '内容', max: 100},
+	                {text: '可用', max: 100},
+	                {text: '功能', max: 100},
+	                {text: '功能', max: 100},
+	                {text: '功能', max: 100},
+	                {text: '功能', max: 100},
+	                {text: '功能', max: 100}
+	            ],
+	            center: ['50%','50%'],
+	            radius: "80%"
+	        }
+	    ],
+	    series: [
+	        {
+	            type: 'radar',
+	             tooltip: {
+	                trigger: 'item'
+	            },
+	            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+	            data: [
+	                {
+	                    value: [60,73,85,40,60,73,85,40],
+	                    name: '某软件1'
+	                },
+	                {
+	                    value: [30,23,85,40,30,23,85,40],
+	                    name: '某软件2'
+	                }
+	                
+	            ]
+	        }
+	    ]
+	};
+	return option;
+}
+$at.EchartController.level2_2 = function(titleColor,axisLabelColor,splitLineStyle,areaColor){
+	var option = {
+	    tooltip : {
+	        trigger: 'axis',
+	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+	        }
+	    },
+	    legend: {
+	        data: ['前端摄像机情况'],
+	        textStyle: {
+                color: legendColor
+            }
+	    },
+	    grid: {
+	        left: '1%',
+	        right: '4%',
+	        bottom: '3%',
+	        containLabel: true
+	    },
+	    xAxis:  {
+	        type: 'value',
+	        splitLine: {
+			    lineStyle: {
+			        color: splitLineStyle
+			    }
+			},
+			axisLine: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 12
+                }
+            }
+	    },
+	    yAxis: {
+	        type: 'category',
+	        data: ['数字800W'],
+	        splitLine: {
+			    lineStyle: {
+			        color: splitLineStyle
+			    }
+			},
+			axisLine: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 12
+                }
+            },
+            axisTick: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
+            },
+	    },
+	    series: [
+	        {
+	            name: '前端摄像机情况',
+	            type: 'bar',
+	            stack: '总量',
+	            label: {
+	                normal: {
+	                    show: true,
+	                    position: 'insideRight'
+	                }
+	            },
+	            data: [820],
+	            itemStyle: {
+	                normal: {
+	                    color: areaColor
+	                }
+	            }
+	        }
+	    ]
+	};
+	return option;
+}
+$at.EchartController.level2_3 = function(titleColor,axisLabelColor,splitLineStyle,areaColor){
+	var option = {
+	    tooltip : {
+	        trigger: 'axis',
+	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+	        }
+	    },
+	    legend: {
+	        data: ['前端摄像机情况'],
+	        textStyle: {
+                color: legendColor
+            }
+	    },
+	    grid: {
+	        left: '1%',
+	        right: '4%',
+	        bottom: '3%',
+	        containLabel: true
+	    },
+	    xAxis:  {
+	        type: 'value',
+	        splitLine: {
+			    lineStyle: {
+			        color: splitLineStyle
+			    }
+			},
+			axisLine: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 12
+                }
+            }
+	    },
+	    yAxis: {
+	        type: 'category',
+	        data: ['数字800W'],
+	        splitLine: {
+			    lineStyle: {
+			        color: splitLineStyle
+			    }
+			},
+			axisLine: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 12
+                }
+            },
+            axisTick: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
+            },
+	    },
+	    series: [
+	        {
+	            name: '前端摄像机情况',
+	            type: 'bar',
+	            stack: '总量',
+	            label: {
+	                normal: {
+	                    show: true,
+	                    position: 'insideRight'
+	                }
+	            },
+	            data: [820],
+	            itemStyle: {
+	                normal: {
+	                    color: areaColor
+	                }
+	            }
+	        }
+	    ]
+	};
+	return option;
+}
+$at.EchartController.level2_4 = function(titleColor,axisLabelColor,splitLineStyle,areaColor){
+	var option = {
+	    tooltip : {
+	        trigger: 'axis',
+	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+	        }
+	    },
+	    legend: {
+	        data: ['前端摄像机情况'],
+	        textStyle: {
+                color: legendColor
+            }
+	    },
+	    grid: {
+	        left: '1%',
+	        right: '4%',
+	        bottom: '3%',
+	        containLabel: true
+	    },
+	    xAxis:  {
+	        type: 'value',
+	        splitLine: {
+			    lineStyle: {
+			        color: splitLineStyle
+			    }
+			},
+			axisLine: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 12
+                }
+            }
+	    },
+	    yAxis: {
+	        type: 'category',
+	        data: ['数字800W'],
+	        splitLine: {
+			    lineStyle: {
+			        color: splitLineStyle
+			    }
+			},
+			axisLine: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 12
+                }
+            },
+            axisTick: {
+                lineStyle: {
+                    color: axisLabelColor
+                }
+            },
+	    },
+	    series: [
+	        {
+	            name: '前端摄像机情况',
+	            type: 'bar',
+	            stack: '总量',
+	            label: {
+	                normal: {
+	                    show: true,
+	                    position: 'insideRight'
+	                }
+	            },
+	            data: [820],
+	            itemStyle: {
+	                normal: {
+	                    color: areaColor
+	                }
+	            }
 	        }
 	    ]
 	};

@@ -17,10 +17,12 @@ $at.AreaController.init = function(viewer){
     	ClickEvent(movement,viewer,
     		function(){
 	    		$at.AreaController.clear();
-	    		$at.AnimateController.level1.hide()
+	    		$at.AnimateController.level1.hide();
+	    		$at.EchartController.page1Init();
 	    	},
 	    	function(){
 	    		$at.AnimateController.level3.show();
+	    		$at.EchartController.page2Init();
 	    	}
     	);
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
