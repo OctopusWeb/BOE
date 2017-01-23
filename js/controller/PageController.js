@@ -14,10 +14,14 @@ $(function(){
 		$at.AnimateController.menu($("#menu2"),$("#menu1"));
 	})
 	$(".closed").on("click",function(){
-		$at.AnimateController.level3.hide()
+		$at.AnimateController.level3.hide();
+		$at.AnimateController.level3_2.show();
 	})
 	$(".closed2").on("click",function(){
 		$at.AnimateController.level4.hide();
+	})
+	$(".bkBtn").on("click",function(){
+		$at.AnimateController.level3_2.show();
 	})
 })
 function pageInit(){

@@ -4,6 +4,13 @@ var splitLineStyle="rgba(0,0,0,0.1)";
 var axisLabelColor="#7f41ee";
 var areaColor="#005494";
 var legendColor="#9fa0a0";
+var pieLabelColor="#9fa0a0";
+var pieColor="#21426a";
+var pieColor1="#21426a"
+var pieColor2="#e7e8ea"
+var pieColor3="#5c5f63"
+var pieColor4="#89abd5"
+var pieColor5="#356eb6"
 $at.EchartController.init = function(){
 //	$at.EchartController.page1Init();
 //	$at.EchartController.page2Init();
@@ -25,25 +32,29 @@ $at.EchartController.page2Init = function(){
 	var option8 = $at.EchartController.level8(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart8"),option8);
 	echart4.on('click', function (params) {
-		$at.EchartController.page2_1Init();
-//		$(".loading").show();
-//		setTimeout(function(){
-//			$at.AnimateController.level4.show();
-//			$at.EchartController.page3Init();
-//			$(".loading").hide();
-//		},5000)
-//		
+		$at.AnimateController.level3_2.hide();
+		$at.EchartController.page2_1Init();	
 	});
 }
 $at.EchartController.page2_1Init = function(){
 	var option2_1 = $at.EchartController.level2_1(titleColor,splitLineStyle,axisLabelColor,areaColor);
-	$at.EchartController.addEchart(document.getElementById("echart2_1"),option2_1);
+	var echart2_1 = $at.EchartController.addEchart(document.getElementById("echart2_1"),option2_1);
 	var option2_2 = $at.EchartController.level2_2(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart2_2"),option2_2);
 	var option2_3 = $at.EchartController.level2_3(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart2_3"),option2_3);
 	var option2_4 = $at.EchartController.level2_4(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart2_4"),option2_4);
+	var option2_5 = $at.EchartController.level2_5(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
+	$at.EchartController.addEchart(document.getElementById("echart2_5"),option2_5);
+	echart2_1.on('click', function (params) {
+		$(".loading").show();
+		setTimeout(function(){
+			$at.AnimateController.level4.show();
+			$at.EchartController.page3Init();
+			$(".loading").hide();
+		},5000)
+	});
 }
 
 $at.EchartController.page3Init = function(){
@@ -183,6 +194,15 @@ $at.EchartController.level2 = function(titleColor,axisLabelColor,splitLineStyle,
                 fontSize: 18
             }
 	    },
+	    legend: {
+	    	top:"5px",
+	    	right:0,
+	        data:['Array综合良率','CF综合良率','CELL综合良率'],
+	        textStyle: {
+	            color: '#fff',
+	            fontSize: 12
+	        }
+	    },
 	    tooltip : {
 	        trigger: 'axis'
 	    },
@@ -196,7 +216,7 @@ $at.EchartController.level2 = function(titleColor,axisLabelColor,splitLineStyle,
 	        {
 	            type : 'category',
 	            boundaryGap : false,
-	            data : ['周一','周二','周三','周四','周五','周六','周日'],
+	            data : ['11月9日','11月10日 ','11月11日 ','11月12日 ','11月13日 ','11月14日 ','11月15日','11月16日 ','11月17日','11月18日','11月19日','11月20日 ','11月21日','11月22日','11月23日 ','11月24日'],
 	            splitLine: {
 				    lineStyle: {
 				        color: "titleColor"
@@ -237,36 +257,36 @@ $at.EchartController.level2 = function(titleColor,axisLabelColor,splitLineStyle,
 	        }
 	    ],
 	    series : [
+//	        {
+//	            name:'邮件营销',
+//	            type:'line',
+//	            stack: '总量',
+//	            areaStyle: {normal: {}},
+//	            data:[120, 132, 101, 134, 90, 230, 210, 101, 134, 90, 230, 210]
+//	        },
+//	        {
+//	            name:'联盟广告',
+//	            type:'line',
+//	            stack: '总量',
+//	            areaStyle: {normal: {}},
+//	            data:[220, 182, 191, 234, 290, 330, 310, 191, 234, 290, 330, 310]
+//	        },
 	        {
-	            name:'邮件营销',
+	            name:'Array综合良率',
 	            type:'line',
 	            stack: '总量',
 	            areaStyle: {normal: {}},
-	            data:[120, 132, 101, 134, 90, 230, 210]
+	            data:[150, 232, 201, 154, 190, 330, 410, 201, 154, 190, 330, 410]
 	        },
 	        {
-	            name:'联盟广告',
+	            name:'CF综合良率',
 	            type:'line',
 	            stack: '总量',
 	            areaStyle: {normal: {}},
-	            data:[220, 182, 191, 234, 290, 330, 310]
+	            data:[320, 332, 301, 334, 390, 330, 320, 301, 334, 390, 330, 320]
 	        },
 	        {
-	            name:'视频广告',
-	            type:'line',
-	            stack: '总量',
-	            areaStyle: {normal: {}},
-	            data:[150, 232, 201, 154, 190, 330, 410]
-	        },
-	        {
-	            name:'直接访问',
-	            type:'line',
-	            stack: '总量',
-	            areaStyle: {normal: {}},
-	            data:[320, 332, 301, 334, 390, 330, 320]
-	        },
-	        {
-	            name:'搜索引擎',
+	            name:'CELL综合良率',
 	            type:'line',
 	            stack: '总量',
 	            label: {
@@ -276,7 +296,7 @@ $at.EchartController.level2 = function(titleColor,axisLabelColor,splitLineStyle,
 	                }
 	            },
 	            areaStyle: {normal: {}},
-	            data:[820, 932, 901, 934, 1290, 1330, 1320]
+	            data:[820, 932, 901, 934, 1290, 1330, 1320, 901, 934, 1290, 1330, 1320]
 	        }
 	    ]
 	};
@@ -284,6 +304,13 @@ $at.EchartController.level2 = function(titleColor,axisLabelColor,splitLineStyle,
 }
 $at.EchartController.level4 = function(titleColor,axisLabelColor,splitLineStyle,areaColor){
 	var option = {
+		title: {
+	        text: '各产品型号Array工厂良率',
+	        textStyle: {
+                color: "#fff",
+                fontSize: 16
+            }
+	    },
 	    tooltip : {
 	        trigger: 'axis',
 	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
@@ -291,7 +318,7 @@ $at.EchartController.level4 = function(titleColor,axisLabelColor,splitLineStyle,
 	        }
 	    },
 	    legend: {
-	        data: ['前端摄像机情况'],
+	        data: ['Array工厂良率'],
 	        textStyle: {
                 color: legendColor
             }
@@ -323,7 +350,7 @@ $at.EchartController.level4 = function(titleColor,axisLabelColor,splitLineStyle,
 	    },
 	    yAxis: {
 	        type: 'category',
-	        data: ['数字800W','数字500W','数字300W(1280P)','数字200W(1080P)','数字13W(720P)','模拟700以上','模拟500或以下'],
+	        data: ['150MP_MBP','150MP_MQP','185MP_FRP','195MP_FBP','225MP_HPP','290MP_PAP','330MP_LMP','490MP_LMP'],
 	        splitLine: {
 			    lineStyle: {
 			        color: splitLineStyle
@@ -348,7 +375,7 @@ $at.EchartController.level4 = function(titleColor,axisLabelColor,splitLineStyle,
 	    },
 	    series: [
 	        {
-	            name: '前端摄像机情况',
+	            name: 'Array工厂良率',
 	            type: 'bar',
 	            stack: '总量',
 	            label: {
@@ -357,7 +384,7 @@ $at.EchartController.level4 = function(titleColor,axisLabelColor,splitLineStyle,
 	                    position: 'insideRight'
 	                }
 	            },
-	            data: [820, 832, 901, 934, 1290, 1330, 1320],
+	            data: [820, 832, 901, 934, 1290, 1330, 1320, 1320],
 	            itemStyle: {
 	                normal: {
 	                    color: areaColor
@@ -370,6 +397,13 @@ $at.EchartController.level4 = function(titleColor,axisLabelColor,splitLineStyle,
 }
 $at.EchartController.level5 = function(titleColor,axisLabelColor,splitLineStyle,areaColor,legendColor){
 	var option = {
+		title: {
+	        text: 'Array Fab Yield',
+	        textStyle: {
+                color: "#fff",
+                fontSize: 16
+            }
+	    },
 	    tooltip : {
 	        trigger: 'axis'
 	    },
@@ -395,112 +429,56 @@ $at.EchartController.level5 = function(titleColor,axisLabelColor,splitLineStyle,
 	            boundaryGap : false,
 	            data : [
 		            	{
-						    value: '东城区',
+						    value: '150MP_MBP',
 						    textStyle: {
 						        fontSize: 12,
 						        color: "#fff"
 						    }
 						},
 						{
-						    value: '西城区',
+						    value: '150MP_MQP',
 						    textStyle: {
 						        fontSize: 12,
 						        color: "#fff"
 						    }
 						},
 						{
-						    value: '石景山区',
+						    value: '185MP_FRP',
 						    textStyle: {
 						        fontSize: 12,
 						        color: "#fff"
 						    }
 						},
 						{
-						    value: '丰台区',
+						    value: '195MP_FBP',
 						    textStyle: {
 						        fontSize: 12,
 						        color: "#fff"
 						    }
 						},
 						{
-						    value: '朝阳区 ',
+						    value: '225MP_HPP ',
 						    textStyle: {
 						        fontSize: 12,
 						        color: "#fff"
 						    }
 						},
 						{
-						    value: '海淀区',
+						    value: '290MP_PAP',
 						    textStyle: {
 						        fontSize: 12,
 						        color: "#fff"
 						    }
 						},
 						{
-						    value: '延庆区',
+						    value: '330MP_LMP',
 						    textStyle: {
 						        fontSize: 12,
 						        color: "#fff"
 						    }
 						},
 						{
-						    value: '昌平区',
-						    textStyle: {
-						        fontSize: 12,
-						        color: "#fff"
-						    }
-						},
-						{
-						    value: '顺义区',
-						    textStyle: {
-						        fontSize: 12,
-						        color: "#fff"
-						    }
-						},
-						{
-						    value: '怀柔区',
-						    textStyle: {
-						        fontSize: 12,
-						        color: "#fff"
-						    }
-						},
-						{
-						    value: '密云区',
-						    textStyle: {
-						        fontSize: 12,
-						        color: "#fff"
-						    }
-						},
-						{
-						    value: '平谷区',
-						    textStyle: {
-						        fontSize: 12,
-						        color: "#fff"
-						    }
-						},
-						{
-						    value: '通州区',
-						    textStyle: {
-						        fontSize:12,
-						        color: "#fff"
-						    }
-						},
-						{
-						    value: '大兴区',
-						    textStyle: {
-						        fontSize:12,
-						        color: "#fff"
-						    }
-						},
-						{
-						    value: '房山区',
-						    textStyle: {
-						        fontSize: 12,
-						        color: "#fff"
-						    }
-						},
-						{
-						    value: '门头沟区',
+						    value: '490MP_LMP',
 						    textStyle: {
 						        fontSize: 12,
 						        color: "#fff"
@@ -559,7 +537,7 @@ $at.EchartController.level5 = function(titleColor,axisLabelColor,splitLineStyle,
 	                    width: 2
 	                }
 	            },
-	            data:[320, 360, 400, 380, 320, 290, 330, 420, 450, 410, 310, 380, 420, 510, 580, 490]
+	            data:[320, 360, 400, 380, 320, 290, 330, 420]
 	        }
 	    ]
 	};
@@ -568,11 +546,20 @@ $at.EchartController.level5 = function(titleColor,axisLabelColor,splitLineStyle,
 $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,areaColor,legendColor){
 	var option = {
 		title: {
-	        text: 'After Repair Yield',
+	        text: 'Before/After Repair Yield',
 	        textStyle: {
                 color: "#fff",
                 fontSize: 16
             }
+	    }, 
+	    legend: {
+	        top: 5,
+	        right:0,
+	        data: ['Before_Q','Before_P','Before_S', 'After_Q', 'After_P', 'After_S'],
+	        textStyle: {
+	            color: '#fff',
+	            fontSize: 12
+	        }
 	    },
 	    tooltip : {
 	        trigger: 'axis',
@@ -610,7 +597,7 @@ $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,
                     color: axisLabelColor
                 }
             },
-            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+            data : ['150MP_MBP','150MP_MQP','185MP_FRP','195MP_FBP','225MP_HPP','290MP_PAP','330MP_LMP','490MP_LMP']
 	    },
 	    yAxis :{
             type : 'value',
@@ -638,10 +625,10 @@ $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,
         },
 	    series : [
 	        {
-	            name:'还未覆盖',
+	            name:'Before_Q',
 	            type:'bar',
-	            stack: '广告',
-	            data:[220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290],
+	            stack: 'Before',
+	            data:[220, 182, 191, 234, 290, 330, 310,220],
 	            itemStyle: {
 	                normal: {
 	                    color: '#21426a'
@@ -649,10 +636,21 @@ $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,
 	            }
 	        },
 	        {
-	            name:'计划建设',
+	            name:'Before_P',
 	            type:'bar',
-	            stack: '广告',
-	            data:[150, 232, 201, 154, 190, 330, 410,150, 232, 201, 154, 190],
+	            stack: 'Before',
+	            data:[150, 232, 201, 154, 190, 330, 410,150],
+	            itemStyle: {
+	                normal: {
+	                    color: '#356eb6'
+	                }
+	            }
+	        },
+	        {
+	            name:'Before_S',
+	            type:'bar',
+	            stack: 'Before',
+	            data:[15, 23, 20, 15, 19, 33, 41,15],
 	            itemStyle: {
 	                normal: {
 	                    color: '#356eb6'
@@ -661,10 +659,10 @@ $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,
 	        },
 	        
 	        {
-	            name:'筹备建设',
+	            name:'After_Q',
 	            type:'bar',
-	            stack: '搜索引擎',
-	            data:[620, 732, 701, 734, 1090, 1130, 1120,620, 732, 701, 734, 1090],
+	            stack: 'After',
+	            data:[620, 732, 701, 734, 1090, 1130, 1120,620],
 	            itemStyle: {
 	                normal: {
 	                    color: '#e8640a'
@@ -672,10 +670,21 @@ $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,
 	            }
 	        },
 	        {
-	            name:'准备施工',
+	            name:'After_P',
 	            type:'bar',
-	            stack: '搜索引擎',
-	            data:[120, 132, 101, 134, 290, 230, 220,120, 132, 101, 134, 290],
+	            stack: 'After',
+	            data:[120, 132, 101, 134, 290, 230, 220,120],
+	            itemStyle: {
+	                normal: {
+	                    color: '#ee8d03'
+	                }
+	            }
+	        },
+	        {
+	            name:'After_S',
+	            type:'bar',
+	            stack: 'After',
+	            data:[12, 13, 10, 13, 29, 23, 22,12],
 	            itemStyle: {
 	                normal: {
 	                    color: '#ee8d03'
@@ -688,8 +697,17 @@ $at.EchartController.level7 = function(titleColor,axisLabelColor,splitLineStyle,
 }
 $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,areaColor,legendColor){
 	var option = {
+		legend: {
+	        top: 5,
+	        right:0,
+	        data: ['DCS','DDS','DGS', 'DOP', 'DSO', 'GCS',"GGS"],
+	        textStyle: {
+	            color: '#fff',
+	            fontSize: 12
+	        }
+	    },
 		title: {
-	        text: 'After Repair Yield',
+	        text: 'Defect Detail',
 	        textStyle: {
                 color: "#fff",
                 fontSize: 16
@@ -731,7 +749,7 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
                     color: axisLabelColor
                 }
             },
-            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+            data : ['150MP_MBP','150MP_MQP','185MP_FRP','195MP_FBP','225MP_HPP','290MP_PAP','330MP_LMP','490MP_LMP']
 	    },
 	    yAxis :{
             type : 'value',
@@ -760,10 +778,10 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	    series : [
 	       
 	        {
-	            name:'不覆盖',
+	            name:'DCS',
 	            type:'bar',
-	            stack: '点位1',
-	            data:[120, 132, 101, 134, 90, 230, 210,120, 132, 101, 134, 90],
+	            stack: 'DCS',
+	            data:[120, 132, 101, 134, 90, 230, 210,120],
 	            itemStyle: {
 	                normal: {
 	                    color: '#89abd5'
@@ -771,10 +789,10 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	            }
 	        },
 	        {
-	            name:'还未覆盖',
+	            name:'DDS',
 	            type:'bar',
-	            stack: '广告1',
-	            data:[220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290],
+	            stack: 'DDS',
+	            data:[220, 182, 191, 234, 290, 330, 310,220],
 	            itemStyle: {
 	                normal: {
 	                    color: '#21426a'
@@ -782,10 +800,10 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	            }
 	        },
 	        {
-	            name:'计划建设',
+	            name:'DGS',
 	            type:'bar',
-	            stack: '广告2',
-	            data:[150, 232, 201, 154, 190, 330, 410,150, 232, 201, 154, 190],
+	            stack: 'DGS',
+	            data:[150, 232, 201, 154, 190, 330, 410,150],
 	            itemStyle: {
 	                normal: {
 	                    color: '#356eb6'
@@ -794,10 +812,10 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	        },
 	        
 	        {
-	            name:'筹备建设',
+	            name:'DOP',
 	            type:'bar',
-	            stack: '搜索引擎1',
-	            data:[620, 732, 701, 734, 1090, 1130, 1120,620, 732, 701, 734, 1090],
+	            stack: 'DOP',
+	            data:[620, 732, 701, 734, 1090, 1130, 1120,620],
 	            itemStyle: {
 	                normal: {
 	                    color: '#e8640a'
@@ -805,10 +823,10 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	            }
 	        },
 	        {
-	            name:'准备施工',
+	            name:'DSO',
 	            type:'bar',
-	            stack: '搜索引擎2',
-	            data:[120, 132, 101, 134, 290, 230, 220,120, 132, 101, 134, 290],
+	            stack: 'DSO',
+	            data:[120, 132, 101, 134, 290, 230, 220,120],
 	            itemStyle: {
 	                normal: {
 	                    color: '#ee8d03'
@@ -816,10 +834,10 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	            }
 	        },
 	        {
-	            name:'正在施工',
+	            name:'GCS',
 	            type:'bar',
-	            stack: '搜索引擎3',
-	            data:[60, 72, 71, 74, 190, 130, 110,60, 72, 71, 74, 190],
+	            stack: 'GCS',
+	            data:[60, 72, 71, 74, 190, 130, 110,60],
 	            itemStyle: {
 	                normal: {
 	                    color: '#f8bc00'
@@ -827,10 +845,10 @@ $at.EchartController.level8 = function(titleColor,axisLabelColor,splitLineStyle,
 	            }
 	        },
 	        {
-	            name:'等待上线',
+	            name:'GGS',
 	            type:'bar',
-	            stack: '搜索引擎4',
-	            data:[62, 82, 91, 84, 109, 110, 120,62, 82, 91, 84, 109],
+	            stack: 'GGS',
+	            data:[62, 82, 91, 84, 109, 110, 120,62],
 	            itemStyle: {
 	                normal: {
 	                    color: '#f7dfa1'
@@ -1502,21 +1520,19 @@ $at.EchartController.level2_1 = function(titleColor,axisLabelColor,splitLineStyl
 	    tooltip: {
 	        trigger: 'axis'
 	    },
-	    legend: {
-	        x: 'center',
-	        data:['某软件','某主食手机','某水果手机','降水量','蒸发量']
-	    },
 	    radar: [
 	        {
 	            indicator: [
-	                {text: '品牌', max: 100},
-	                {text: '内容', max: 100},
-	                {text: '可用', max: 100},
-	                {text: '功能', max: 100},
-	                {text: '功能', max: 100},
-	                {text: '功能', max: 100},
-	                {text: '功能', max: 100},
-	                {text: '功能', max: 100}
+	                {text: 'DCS', max: 100},
+	                {text: 'DDS', max: 100},
+	                {text: 'DGS', max: 100},
+	                {text: 'DOP', max: 100},
+	                {text: 'DSO', max: 100},
+	                {text: 'GCS', max: 100},
+	                {text: 'GGS', max: 100},
+	                {text: 'GOA', max: 100},
+	                {text: 'GOPCOP', max: 100},
+	                {text: 'GSO', max: 100}
 	            ],
 	            center: ['50%','50%'],
 	            radius: "80%"
@@ -1531,12 +1547,12 @@ $at.EchartController.level2_1 = function(titleColor,axisLabelColor,splitLineStyl
 	            itemStyle: {normal: {areaStyle: {type: 'default'}}},
 	            data: [
 	                {
-	                    value: [60,73,85,40,60,73,85,40],
-	                    name: '某软件1'
+	                    value: [60,73,85,40,60,73,85,40,85,40],
+	                    name: 'Before'
 	                },
 	                {
-	                    value: [30,23,85,40,30,23,85,40],
-	                    name: '某软件2'
+	                    value: [30,23,85,40,30,23,85,40,85,40],
+	                    name: 'After'
 	                }
 	                
 	            ]
@@ -1552,12 +1568,6 @@ $at.EchartController.level2_2 = function(titleColor,axisLabelColor,splitLineStyl
 	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
 	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
 	        }
-	    },
-	    legend: {
-	        data: ['前端摄像机情况'],
-	        textStyle: {
-                color: legendColor
-            }
 	    },
 	    grid: {
 	        left: '1%',
@@ -1586,7 +1596,7 @@ $at.EchartController.level2_2 = function(titleColor,axisLabelColor,splitLineStyl
 	    },
 	    yAxis: {
 	        type: 'category',
-	        data: ['数字800W'],
+	        data: ['150MP_MBP'],
 	        splitLine: {
 			    lineStyle: {
 			        color: splitLineStyle
@@ -1611,7 +1621,7 @@ $at.EchartController.level2_2 = function(titleColor,axisLabelColor,splitLineStyl
 	    },
 	    series: [
 	        {
-	            name: '前端摄像机情况',
+	            name: '150MP_MBP',
 	            type: 'bar',
 	            stack: '总量',
 	            label: {
@@ -1639,12 +1649,6 @@ $at.EchartController.level2_3 = function(titleColor,axisLabelColor,splitLineStyl
 	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
 	        }
 	    },
-	    legend: {
-	        data: ['前端摄像机情况'],
-	        textStyle: {
-                color: legendColor
-            }
-	    },
 	    grid: {
 	        left: '1%',
 	        right: '4%',
@@ -1672,7 +1676,7 @@ $at.EchartController.level2_3 = function(titleColor,axisLabelColor,splitLineStyl
 	    },
 	    yAxis: {
 	        type: 'category',
-	        data: ['数字800W'],
+	        data: ['150MP_MBP'],
 	        splitLine: {
 			    lineStyle: {
 			        color: splitLineStyle
@@ -1697,7 +1701,7 @@ $at.EchartController.level2_3 = function(titleColor,axisLabelColor,splitLineStyl
 	    },
 	    series: [
 	        {
-	            name: '前端摄像机情况',
+	            name: '150MP_MBP',
 	            type: 'bar',
 	            stack: '总量',
 	            label: {
@@ -1719,83 +1723,117 @@ $at.EchartController.level2_3 = function(titleColor,axisLabelColor,splitLineStyl
 }
 $at.EchartController.level2_4 = function(titleColor,axisLabelColor,splitLineStyle,areaColor){
 	var option = {
-	    tooltip : {
-	        trigger: 'axis',
-	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+	    title : {
+	        text: 'Before Repair Yield',
+	        x:'center',
+	        textStyle:{
+	        	color:"#fff"
 	        }
 	    },
-	    legend: {
-	        data: ['前端摄像机情况'],
-	        textStyle: {
-                color: legendColor
-            }
+	    tooltip : {
+	        trigger: 'item',
+	        formatter: "{a} <br/>{b} : {c} ({d}%)"
 	    },
-	    grid: {
-	        left: '1%',
-	        right: '4%',
-	        bottom: '3%',
-	        containLabel: true
-	    },
-	    xAxis:  {
-	        type: 'value',
-	        splitLine: {
-			    lineStyle: {
-			        color: splitLineStyle
-			    }
-			},
-			axisLine: {
-                lineStyle: {
-                    color: axisLabelColor
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color: "#fff",
-                    fontSize: 12
-                }
-            }
-	    },
-	    yAxis: {
-	        type: 'category',
-	        data: ['数字800W'],
-	        splitLine: {
-			    lineStyle: {
-			        color: splitLineStyle
-			    }
-			},
-			axisLine: {
-                lineStyle: {
-                    color: axisLabelColor
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color: "#fff",
-                    fontSize: 12
-                }
-            },
-            axisTick: {
-                lineStyle: {
-                    color: axisLabelColor
-                }
-            },
-	    },
-	    series: [
+	    series : [
 	        {
-	            name: '前端摄像机情况',
-	            type: 'bar',
-	            stack: '总量',
-	            label: {
-	                normal: {
-	                    show: true,
-	                    position: 'insideRight'
-	                }
-	            },
-	            data: [820],
+	            name: '150MP_MBP',
+	            type: 'pie',
+	            radius : '70%',
+	            center: ['50%', '50%'],
+	            data:[
+	                {value:335, name:'Before P',
+		                itemStyle: {
+			                normal: {
+			                    color: pieColor1,
+			                    shadowBlur: 100,
+			                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+			                }
+		            	}
+	            	},
+	                {value:310, name:'Before Q',
+		                itemStyle: {
+			                normal: {
+			                    color: pieColor2,
+			                    shadowBlur: 100,
+			                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+			                }
+		            	}
+	            	},
+	                {value:234, name:'Before S',
+		                itemStyle: {
+			                normal: {
+			                    color: pieColor3,
+			                    shadowBlur: 100,
+			                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+			                }
+		            	}
+	            	}
+	            ],
 	            itemStyle: {
-	                normal: {
-	                    color: areaColor
+	                emphasis: {
+	                    shadowBlur: 10,
+	                    shadowOffsetX: 0,
+	                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+	                }
+	            }
+	        }
+	    ]
+	};
+	return option;
+}
+$at.EchartController.level2_5 = function(titleColor,axisLabelColor,splitLineStyle,areaColor){
+	var option = {
+	    title : {
+	        text: 'After Repair Yield',
+	        x:'center',
+	        textStyle:{
+	        	color:"#fff"
+	        }
+	    },
+	    tooltip : {
+	        trigger: 'item',
+	        formatter: "{a} <br/>{b} : {c} ({d}%)"
+	    },
+	    series : [
+	        {
+	            name: 'After Repair Yield',
+	            type: 'pie',
+	            radius : '70%',
+	            center: ['50%', '50%'],
+	            data:[
+	                {value:335, name:'After P',
+		                itemStyle: {
+			                normal: {
+			                    color: pieColor1,
+			                    shadowBlur: 100,
+			                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+			                }
+		            	}
+	            	},
+	                {value:310, name:'After Q',
+		                itemStyle: {
+			                normal: {
+			                    color: pieColor2,
+			                    shadowBlur: 100,
+			                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+			                }
+		            	}
+	            	},
+	                {value:234, name:'After S',
+		                itemStyle: {
+			                normal: {
+			                    color: pieColor3,
+			                    shadowBlur: 100,
+			                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+			                }
+		            	}
+	            	}
+	            ],
+	            itemStyle: {
+	                emphasis: {
+	                    shadowBlur: 10,
+	                    shadowOffsetX: 0,
+	                    shadowColor: 'rgba(0, 0, 0, 0.5)'
 	                }
 	            }
 	        }
