@@ -12,15 +12,15 @@ $at.CesiumController.init = function(){
 		sceneModePicker:false,
 		sceneMode:Cesium.SceneMode.COLUMBUS_VIEW
 	};
-	option.imageryProvider = new Cesium.WebMapTileServiceImageryProvider({
-        url : 'http://192.168.1.254:8080/png?x={TileCol}&y={TileRow}&z={TileMatrix}',
-        layer : 'USGSShadedReliefOnly',
-        style : 'default',
-        format : 'image/jpeg',
-        tileMatrixSetID : 'default028mm',
-        maximumLevel: 17,
-        credit : new Cesium.Credit('U. S. Geological Survey')
-    });
+//	option.imageryProvider = new Cesium.WebMapTileServiceImageryProvider({
+//      url : 'http://192.168.1.254:8080/png?x={TileCol}&y={TileRow}&z={TileMatrix}',
+//      layer : 'USGSShadedReliefOnly',
+//      style : 'default',
+//      format : 'image/jpeg',
+//      tileMatrixSetID : 'default028mm',
+//      maximumLevel: 17,
+//      credit : new Cesium.Credit('U. S. Geological Survey')
+//  });
 	
 	
 	Cesium.BingMapsApi.defaultKey = "AknGwyGtxa9zlcMazOG8GVPwpFATmyYf5GQOSwOMqTd-JTKe8h4Qwdu0WJRgQvfi";

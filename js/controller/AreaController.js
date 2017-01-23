@@ -162,7 +162,7 @@ function IconDraw(IconType,parse){
 	$at.AreaController.allIcon.push(billboards);
 }
 function AreaDraw(areaType,parse,scene,colors){
-	var color = Cesium.Color.fromCssColorString(colors).withAlpha(0.1);
+	var color = Cesium.Color.fromCssColorString(colors).withAlpha(0.5);
 	var geometryInstances = [];
 	for(var n=0;n<parse.length;n++){
 		var degreesArray=[];

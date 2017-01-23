@@ -6,15 +6,14 @@ var areaColor="#005494";
 var legendColor="#9fa0a0";
 var pieLabelColor="#9fa0a0";
 var pieColor="#21426a";
-var pieColor1="#21426a"
+var pieColor1="#89abd5"
 var pieColor2="#e7e8ea"
 var pieColor3="#5c5f63"
 var pieColor4="#89abd5"
 var pieColor5="#356eb6"
 $at.EchartController.init = function(){
-//	$at.EchartController.page1Init();
-//	$at.EchartController.page2Init();
-//	$at.EchartController.page3Init();
+	var option14 = $at.EchartController.level14(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
+	$at.EchartController.addEchart(document.getElementById("echart14"),option14);
 }
 $at.EchartController.page1Init = function(){
 	var option1 = $at.EchartController.level1(titleColor,splitLineStyle,axisLabelColor,areaColor);
@@ -26,12 +25,20 @@ $at.EchartController.page2Init = function(){
 	var option4 = $at.EchartController.level4(titleColor,splitLineStyle,axisLabelColor,areaColor);
 	var echart4 = $at.EchartController.addEchart(document.getElementById("echart4"),option4);
 	var option5 = $at.EchartController.level5(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
-	$at.EchartController.addEchart(document.getElementById("echart5"),option5);
+	var echart7 = $at.EchartController.addEchart(document.getElementById("echart5"),option5);
 	var option7 = $at.EchartController.level7(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
-	$at.EchartController.addEchart(document.getElementById("echart7"),option7);
+	var echart8 = $at.EchartController.addEchart(document.getElementById("echart7"),option7);
 	var option8 = $at.EchartController.level8(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart8"),option8);
 	echart4.on('click', function (params) {
+		$at.AnimateController.level3_2.hide();
+		$at.EchartController.page2_1Init();	
+	});
+	echart7.on('click', function (params) {
+		$at.AnimateController.level3_2.hide();
+		$at.EchartController.page2_1Init();	
+	});
+	echart8.on('click', function (params) {
 		$at.AnimateController.level3_2.hide();
 		$at.EchartController.page2_1Init();	
 	});
@@ -68,8 +75,7 @@ $at.EchartController.page3Init = function(){
 		var option13 = $at.EchartController.level13(titleColor,splitLineStyle,axisLabelColor,areaColor,data);
 		$at.EchartController.addEchart(document.getElementById("echart13"),option13);
 	})
-	var option14 = $at.EchartController.level14(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
-	$at.EchartController.addEchart(document.getElementById("echart14"),option14);
+	
 }
 
 $at.EchartController.addEchart = function(dom,option){

@@ -82,12 +82,12 @@ z-index: 1000;border: 1px #ccc solid;opacity: 0;}
 #menu2{position: absolute;left: 0;top: 0;bottom: 0;right: 0;}
 
 .page2{top: 70px;left: 70px;right: 20px;bottom: 20px;position: absolute;background: rgba(39,42,49,1);padding:20px;border-radius: 3px;}
-#echart14{width: 100%;height: 100%;}
+#echart14{width: 100%;height: 100%;position: absolute;}
 .loading{width: 100%;height: 100%;position: absolute;background: rgba(0,0,0,0.5);z-index: 10000;display: none;}
 .sk-cube-grid {position: absolute;width: 80px;height: 80px;left: 50%;top: 50%;margin-top: -40px;margin-left: -40px;}
 .sk-cube-grid .sk-cube {width: 33%;height: 33%; background-color: #89abd5;float: left;
   -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
-          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
 }
 .sk-cube-grid .sk-cube1 {
   -webkit-animation-delay: 0.2s;
