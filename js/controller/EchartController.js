@@ -6,11 +6,11 @@ var areaColor="#005494";
 var legendColor="#9fa0a0";
 var pieLabelColor="#9fa0a0";
 var pieColor="#21426a";
-var pieColor1="#89abd5"
-var pieColor2="#e7e8ea"
-var pieColor3="#5c5f63"
-var pieColor4="#89abd5"
-var pieColor5="#356eb6"
+var pieColor1="#89abd5";
+var pieColor2="#e7e8ea";
+var pieColor3="#5c5f63";
+var pieColor4="#89abd5";
+var pieColor5="#356eb6";
 $at.EchartController.init = function(){
 	var option14 = $at.EchartController.level14(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
 	$at.EchartController.addEchart(document.getElementById("echart14"),option14);

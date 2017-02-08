@@ -35,3 +35,8 @@ function pageInit(){
 	TweenMax.set($("#menu2"),{x: "4000px",ease: Power4.easeIN});
 	TweenMax.set($("#menu2"),{opacity: "0",ease: Power4.easeIn});
 }
+
+function sort(arr){
+	var result = {};
+	var newArr = [];
+}
