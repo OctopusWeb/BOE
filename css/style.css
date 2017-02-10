@@ -9,9 +9,11 @@ background: #272a31;color: #ccc;width: 150px;}
 #wrap .top h2{position: absolute;color: #ccc;font-size: 14px;font-weight: 400;right: 280px;line-height: 50px;}
 #wrap .left{height: 100%;position: absolute;background: #23262d;width: 50px;z-index: 101;top: 50px;
 box-shadow: 1px 2px 3px #111518;}
-#wrap .left .menu{width: 100%;height: 50px;background: #272a31;border-bottom: 1px #444444 solid;cursor: pointer;}
+#wrap .left .menu{width: 100%;height: 55px;background: #272a31;border-bottom: 1px #444444 solid;cursor: pointer;}
 #wrap .left .menu:hover{background: #373c46;}
-#wrap .left .menu p{font-size: 18px;color: #fff;width: 50px;text-align: center;line-height: 50px;}
+#wrap .left .infoBtnActive{background: #373c46;}
+#wrap .left .menu p{font-size: 18px;color: #fff;width: 50px;text-align: center;line-height: 30px;margin-top: 5px;float: left;}
+#wrap .left .menu span{color: #fff;font-size: 12px;line-height: 12px;float: left;text-align: center;width: 50px;}
 #wrap #cesiumContainer{width: 70%;position: absolute;top: 150px;padding: 20px;background: #212227;left: 60px;bottom: 20px;padding-bottom: 0;}
 #wrap .indexInfo{position: absolute;width: 70%;position: absolute;top: 50px;height: 100px;padding-left: 80px;}
 #wrap .indexInfo .infoBtn{width: 23.5%;height: 80px;float: left;background: #272a31;margin: 20px 0% 0px 2%;

@@ -69,6 +69,4 @@ $at.AnimateController.menu = function(showMenu,hideMenu){
 	TweenMax.to(hideMenu, 0.5, {x: "4000px",ease: Power4.easeIN});
 	TweenMax.to(hideMenu, 0.5, {opacity: "0",ease: Power4.easeIn});
 }
-function ceshi(){
-	
-}
+

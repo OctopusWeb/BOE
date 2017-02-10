@@ -4,6 +4,8 @@ $(function(){
 	pageInit();
 
 	$(".menu").eq(0).on("click",function(){
+		$(".menu").eq(1).removeClass("infoBtnActive");
+		$(".menu").eq(0).addClass("infoBtnActive");
 		$at.AnimateController.menu($("#menu1"),$("#menu2"));
 		$at.AnimateController.level2.hide(function(){
 			$at.AreaController.show();
@@ -11,6 +13,8 @@ $(function(){
 		});
 	})
 	$(".menu").eq(1).on("click",function(){
+		$(".menu").eq(0).removeClass("infoBtnActive");
+		$(".menu").eq(1).addClass("infoBtnActive");
 		$at.AnimateController.menu($("#menu2"),$("#menu1"));
 	})
 	$(".closed").on("click",function(){
