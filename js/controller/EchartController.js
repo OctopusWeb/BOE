@@ -1113,13 +1113,23 @@ $at.EchartController.level11 = function(titleColor,axisLabelColor,splitLineStyle
 }
 $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle,areaColor,legendColor){
 	var dataBJ = [
-	    ["[BAE1S]-1rules",'5810',9,56,0.46,18,6,"良"],
-	    ['[5810]-1rules','BAE1S',11,21,0.65,34,9,"优"],
-	    ['[BAEV]-1rules','8800',7,63,0.3,14,5,"良"],
-	    ['[BAEIT]-1rules','BAE2S',7,29,0.33,16,6,"优"],
-	    ['[9800]-1rules','PXL00',24,44,0.76,40,16,"优"],
-	    ['[DOP01]-1rules','1800',58,90,1.77,68,33,"良"],
-	    ['[PXL00]-1rules','DOP01',49,77,1.46,48,27,"良"]
+	    [1,1,9,56,0.46,18,6,"良"],
+	    [2,2,11,21,0.65,34,9,"优"],
+	    [3,3,7,63,0.3,14,5,"良"],
+	    [4,4,7,29,0.33,16,6,"优"],
+	    [5,5,24,44,0.76,40,16,"优"],
+	    [6,6,58,90,1.77,68,33,"良"],
+	    [7,7,49,77,1.46,48,27,"良"],
+	    [8,8,55,80,1.29,59,29,"良"],
+	    [9,9,216,280,4.8,108,64,"重度污染"],
+	    [10,10,127,216,2.52,61,27,"中度污染"],
+	    [11,11,19,38,0.57,31,15,"优"],
+	    [12,12,11,40,0.43,21,7,"优"],
+	    [13,13,38,74,1.04,46,22,"良"],
+	    [14,14,79,120,1.7,75,41,"轻度污染"],
+	    [15,15,63,116,1.48,44,26,"轻度污染"],
+	    [16,16,6,29,0.34,13,5,"优"]
+	    
 	];
 	
 	var schema = [
@@ -1183,8 +1193,8 @@ $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle
 	    xAxis: {
 	        type : 'category',
             axisTick : {show: false},
-            data : ['5810','BAE1S','8800','BAE2S','PXL00','1800','DOP01'],
-	        name: 'qq',
+            data : ['5810','BAE1S','8800','8AEV','BAE2S','5850','BAEGA',"2800","BATPE","5150","8AEIT","1800","9800","PXL00","8ATSP","8APPH","DOP01"],
+	        name: 'RHS',
 	        nameLocation: 'end',
 	        nameGap: 20,
 	        nameTextStyle: {
@@ -1198,13 +1208,19 @@ $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle
 	        },
 	        splitLine: {
 	            show: false
-	        }
+	        },
+	        axisLabel: {
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 12
+                }
+            },
 	    },
 	    yAxis: {
 	       type : 'category',
             axisTick : {show: false},
-            data : ['[BAE1S]-1rules','[5810]-1rules','[BAEV]-1rules','[BAEIT]-1rules','[9800]-1rules','[DOP01]-1rules','[PXL00]-1rules'],
-	        name: 'qq',
+            data : ['[BAE1S]-rule','[5810]-rule','[BAEV]-rule','[5800]-rule','[BAE2S]-rule','[2800]-rule','[BAEGA]-rule','[5150]-rule','[1800]-rule','[BAEIT]-rule','[BATPE]-rule','[9800]-rule','[PXL00]-rule','[BATSP]-rule','[BAPPH]-rule','[DOP01]-rule'],
+	        name: 'LHS',
 	        nameLocation: 'end',
 	        nameGap: 20,
 	        nameTextStyle: {
@@ -1218,7 +1234,13 @@ $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle
 	        },
 	        splitLine: {
 	            show: false
-	        }
+	        },
+	        axisLabel: {
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 12
+                }
+            },
 	    },
 	    visualMap: [
 	        {
@@ -1231,7 +1253,7 @@ $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle
 	            itemHeight: 120,
 	            calculable: true,
 	            precision: 0.1,
-	            text: ['选择参数1'],
+	            text: ['出错数量筛选'],
 	            textGap: 30,
 	            textStyle: {
 	                color: '#fff'
@@ -1261,7 +1283,7 @@ $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle
 	            itemHeight: 120,
 	            calculable: true,
 	            precision: 0.1,
-	            text: ['选择参数2'],
+	            text: ['出错率筛选'],
 	            textGap: 30,
 	            textStyle: {
 	                color: '#fff'
@@ -1477,13 +1499,22 @@ $at.EchartController.level2_1 = function(titleColor,axisLabelColor,splitLineStyl
 	             tooltip: {
 	                trigger: 'item'
 	            },
-	            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+	            itemStyle: {
+	            	normal: {
+	            		areaStyle: {type: 'default'},
+	            		
+	            	}
+	            },
 	            data: [
 	                {
 	                    value: [60,73,85,60,73,85,85,60,73,85],
 	                    name: 'Before',
 	                    label: {
 	                        normal: {
+	                        	textStyle: {
+					                color: "#fff",
+					                fontSize: 18
+					            },
 	                            show: true,
 	                            formatter:function(params) {
 	                                return params.value;
@@ -1496,6 +1527,10 @@ $at.EchartController.level2_1 = function(titleColor,axisLabelColor,splitLineStyl
 	                    name: 'After',
 	                    label: {
 	                        normal: {
+	                        	textStyle: {
+					                color: "#fff",
+					                fontSize: 16
+					            },
 	                            show: true,
 	                            formatter:function(params) {
 	                                return params.value;

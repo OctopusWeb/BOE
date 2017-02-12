@@ -85,6 +85,9 @@ z-index: 1000;border: 1px #ccc solid;opacity: 0;}
 
 .page2{top: 70px;left: 70px;right: 20px;bottom: 20px;position: absolute;background: rgba(39,42,49,1);padding:20px;border-radius: 3px;}
 #echart14{width: 100%;height: 100%;position: absolute;}
+#menu2_btn{position: absolute;top: 0;height: 50px;line-height: 50px;right: 20px;z-index: 100;}
+#menu2_btn .inputGroup{float: left;margin-right: 40px;}
+#menu2_btn h1{float: left;font-size: 16px;font-weight: 400;margin-right: 20px;color: #fff;}
 .loading{width: 100%;height: 100%;position: absolute;background: rgba(0,0,0,0.5);z-index: 10000;display: none;}
 .sk-cube-grid {position: absolute;width: 80px;height: 80px;left: 50%;top: 50%;margin-top: -40px;margin-left: -40px;}
 .sk-cube-grid .sk-cube {width: 33%;height: 33%; background-color: #89abd5;float: left;

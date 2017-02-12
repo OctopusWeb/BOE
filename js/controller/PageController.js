@@ -27,6 +27,10 @@ $(function(){
 	$(".bkBtn").on("click",function(){
 		$at.AnimateController.level3_2.show();
 	})
+	$(".selected2").on("change",function(){
+		var option14 = $at.EchartController.level14(titleColor,splitLineStyle,axisLabelColor,areaColor,legendColor);
+		$at.EchartController.addEchart(document.getElementById("echart14"),option14);
+	})
 })
 function pageInit(){
 	var viewer = $at.CesiumController.init();
