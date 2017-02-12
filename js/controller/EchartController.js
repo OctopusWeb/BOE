@@ -1121,25 +1121,20 @@ $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle
 	    [6,6,58,90,1.77,68,33,"良"],
 	    [7,7,49,77,1.46,48,27,"良"],
 	    [8,8,55,80,1.29,59,29,"良"],
-	    [9,9,216,280,4.8,108,64,"重度污染"],
-	    [10,10,127,216,2.52,61,27,"中度污染"],
-	    [11,11,19,38,0.57,31,15,"优"],
+	    [9,9,216,280,4.8,108,64,"差"],
+	    [10,10,127,216,2.52,61,27,"差"],
+	    [11,11,19,38,0.57,31,15,"差"],
 	    [12,12,11,40,0.43,21,7,"优"],
 	    [13,13,38,74,1.04,46,22,"良"],
-	    [14,14,79,120,1.7,75,41,"轻度污染"],
-	    [15,15,63,116,1.48,44,26,"轻度污染"],
+	    [14,14,79,120,1.7,75,41,"差"],
+	    [15,15,63,116,1.48,44,26,"差"],
 	    [16,16,6,29,0.34,13,5,"优"]
 	    
 	];
 	
 	var schema = [
-	    {name: 'date', index: 0, text: '日'},
-	    {name: 'AQIindex', index: 1, text: 'RHS'},
-	    {name: 'PM25', index: 2, text: 'PM2.5'},
-	    {name: 'PM10', index: 3, text: 'PM10'},
-	    {name: 'CO', index: 4, text: '一氧化碳（CO）'},
-	    {name: 'NO2', index: 5, text: '二氧化氮（NO2）'},
-	    {name: 'SO2', index: 6, text: '二氧化硫（SO2）'}
+	    {name: 'date', index: 0, text: '个'},
+	    {name: 'AQIindex', index: 1, text: '出错个数'}
 	];
 	
 	
@@ -1179,15 +1174,10 @@ $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle
 	        formatter: function (obj) {
 	            var value = obj.value;
 	            return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">'
-	                + obj.seriesName + ' ' + value[0] + '日：'
+	                + '质量等级：'
 	                + value[7]
 	                + '</div>'
 	                + schema[1].text + '：' + value[1] + '<br>'
-	                + schema[2].text + '：' + value[2] + '<br>'
-	                + schema[3].text + '：' + value[3] + '<br>'
-	                + schema[4].text + '：' + value[4] + '<br>'
-	                + schema[5].text + '：' + value[5] + '<br>'
-	                + schema[6].text + '：' + value[6] + '<br>';
 	        }
 	    },
 	    xAxis: {
@@ -1210,6 +1200,8 @@ $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle
 	            show: false
 	        },
 	        axisLabel: {
+	        	interval: 0,
+	        	rotate: 30,
                 textStyle: {
                     color: "#fff",
                     fontSize: 12
@@ -1217,7 +1209,7 @@ $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle
             },
 	    },
 	    yAxis: {
-	       type : 'category',
+	        type : 'category',
             axisTick : {show: false},
             data : ['[BAE1S]-rule','[5810]-rule','[BAEV]-rule','[5800]-rule','[BAE2S]-rule','[2800]-rule','[BAEGA]-rule','[5150]-rule','[1800]-rule','[BAEIT]-rule','[BATPE]-rule','[9800]-rule','[PXL00]-rule','[BATSP]-rule','[BAPPH]-rule','[DOP01]-rule'],
 	        name: 'LHS',
@@ -1236,6 +1228,7 @@ $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle
 	            show: false
 	        },
 	        axisLabel: {
+	        	interval: 0,
                 textStyle: {
                     color: "#fff",
                     fontSize: 12
@@ -1342,6 +1335,7 @@ $at.EchartController.level13 = function(titleColor,axisLabelColor,splitLineStyle
                 },
                 lineStyle: {
                     normal: {
+                    	color:"#fff",
                         curveness: 0.5
                     }
                 },
@@ -1838,4 +1832,24 @@ $at.EchartController.level2_5 = function(titleColor,axisLabelColor,splitLineStyl
 	    ]
 	};
 	return option;
+}
+
+function cloneObj(obj){
+	if(!obj || typeof(obj) != "object"){
+		return
+	}
+	var o;
+	if(obj.constructor() == Array){
+		o=[]
+	}else{
+		o={}
+	}
+	for(var x in obj){
+		if(typeof(obj) == "object"){
+			o[x] = cloneObj(obj[x])
+		}else{
+			o[x]=obj[x]
+		}
+	}
+	return o;
 }
