@@ -12,6 +12,14 @@ $at.CesiumController.init = function(){
 		sceneModePicker:false,
 		sceneMode:Cesium.SceneMode.COLUMBUS_VIEW
 	};
+	
+	option.imageryProvider = Cesium.createTileMapServiceImageryProvider({
+        url: Cesium.buildModuleUrl('Assets/Textures/NaturalEarthII/'),
+        maximumLevel: 5,
+        credit: 'Imagery courtesy Natural Earth'
+    });
+   
+	
 //	option.imageryProvider = new Cesium.WebMapTileServiceImageryProvider({
 //      url : 'http://192.168.1.254:8080/png?x={TileCol}&y={TileRow}&z={TileMatrix}',
 //      layer : 'USGSShadedReliefOnly',
@@ -25,6 +33,12 @@ $at.CesiumController.init = function(){
 	
 	Cesium.BingMapsApi.defaultKey = "AknGwyGtxa9zlcMazOG8GVPwpFATmyYf5GQOSwOMqTd-JTKe8h4Qwdu0WJRgQvfi";
     $at.CesiumController.viewer = new Cesium.Viewer("cesiumContainer",option);
+    var imageryLayers = $at.CesiumController.viewer.imageryLayers.get(0);
+    imageryLayers.brightness = 0.8;
+    imageryLayers.contrast = 1.74;
+    imageryLayers.hue = 0;
+    imageryLayers.saturation = 0.5;
+    imageryLayers.gamma = 0.52;
 	return $at.CesiumController.viewer;
 }
 $at.CesiumController.flyTo = function(center,onComplete){

@@ -1310,13 +1310,13 @@ $at.EchartController.level12 = function(titleColor,axisLabelColor,splitLineStyle
 }
 $at.EchartController.level13 = function(titleColor,axisLabelColor,splitLineStyle,areaColor,data){	
     var option = {
-        title: {
-            text: 'Sankey Diagram',
-            textStyle: {
-                color: "#fff",
-                fontSize: 18
-            }
-        },
+//      title: {
+//          text: 'Sankey Diagram',
+//          textStyle: {
+//              color: "#fff",
+//              fontSize: 18
+//          }
+//      },
         tooltip: {
             trigger: 'item',
             triggerOn: 'mousemove'
@@ -1356,7 +1356,7 @@ $at.EchartController.level13 = function(titleColor,axisLabelColor,splitLineStyle
 $at.EchartController.level14 = function(titleColor,axisLabelColor,splitLineStyle,areaColor){
 	var option = {
 	    title: {
-	        text: '显示设备日志分析',
+	        text: '设备日志分析',
 	        textStyle: {
                 color: "#fff",
                 fontSize: 18
@@ -1364,7 +1364,7 @@ $at.EchartController.level14 = function(titleColor,axisLabelColor,splitLineStyle
 	    },
 	    legend: {
 	    	top:"5px",
-	        data:['Array综合良率','CF综合良率','CELL综合良率'],
+	        data:['错误一','错误二','错误三'],
 	        textStyle: {
 	            color: '#fff',
 	            fontSize: 12
@@ -1429,7 +1429,7 @@ $at.EchartController.level14 = function(titleColor,axisLabelColor,splitLineStyle
 	    ],
 	    series : [
 	        {
-	            name:'Array综合良率',
+	            name:'错误一',
 	            type:'line',
 	            stack: '总量',
 	            areaStyle: {normal: {
@@ -1438,7 +1438,7 @@ $at.EchartController.level14 = function(titleColor,axisLabelColor,splitLineStyle
 	            data:[120, 132, 101, 134, 90, 230, 210,120, 132, 101, 134, 90, 230, 210,120, 132, 101, 134, 90, 230, 210,120, 132, 101]
 	        },
 	        {
-	            name:'CF综合良率',
+	            name:'错误二',
 	            type:'line',
 	            stack: '总量',
 	            areaStyle: {normal: {
@@ -1447,7 +1447,7 @@ $at.EchartController.level14 = function(titleColor,axisLabelColor,splitLineStyle
 	            data:[220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290, 330, 310,220, 182, 191]
 	        },
 	        {
-	            name:'CELL综合良率',
+	            name:'错误三',
 	            type:'line',
 	            stack: '总量',
 	            label: {
@@ -1834,22 +1834,3 @@ $at.EchartController.level2_5 = function(titleColor,axisLabelColor,splitLineStyl
 	return option;
 }
 
-function cloneObj(obj){
-	if(!obj || typeof(obj) != "object"){
-		return
-	}
-	var o;
-	if(obj.constructor() == Array){
-		o=[]
-	}else{
-		o={}
-	}
-	for(var x in obj){
-		if(typeof(obj) == "object"){
-			o[x] = cloneObj(obj[x])
-		}else{
-			o[x]=obj[x]
-		}
-	}
-	return o;
-}
